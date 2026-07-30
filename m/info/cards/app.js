@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetBtn = document.getElementById('reset-btn');
     const totalCardsEl = document.getElementById('total-cards');
     const studiedCardsEl = document.getElementById('studied-cards');
-    const progressBar = document.getElementById('progress-bar');
-    const progressText = document.getElementById('progress-text');
+    const progressPercent = document.getElementById('progress-percent');
+    const progressRingFill = document.getElementById('progress-ring-fill');
     
     // Navigation elements
     const prevBtn = document.getElementById('prev-btn');
@@ -24,19 +24,27 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentCategory = 'all';
     let currentIndex = 0;
 
+    // Touch / swipe support
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+    const SWIPE_THRESHOLD = 50;
+    const SWIPE_TIME_LIMIT = 300;
+
     // Inicializar
     function init() {
         renderCategoryFilters();
         updateStats();
         renderCurrentCard();
         setupMusicToggle();
+        setupSwipeGestures();
+        setupKeyboardNav();
     }
 
-    // Configurar música
+    // ── Music toggle ──
     function setupMusicToggle() {
         if (!musicBtn || !bgMusic) return;
-        
-        bgMusic.volume = 0.3; // volume agradável
+        bgMusic.volume = 0.3;
 
         const setMusicOn = () => {
             isMusicPlaying = true;
@@ -45,10 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                     <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                 </svg>
-                Música: ON
             `;
-            musicBtn.style.color = '#10b981';
-            musicBtn.style.borderColor = '#10b981';
+            musicBtn.classList.add('music-on');
         };
 
         const setMusicOff = () => {
@@ -59,24 +65,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     <line x1="23" y1="9" x2="17" y2="15"></line>
                     <line x1="17" y1="9" x2="23" y2="15"></line>
                 </svg>
-                Música: OFF
             `;
-            musicBtn.style.color = 'var(--text-muted)';
-            musicBtn.style.borderColor = 'var(--border-color)';
+            musicBtn.classList.remove('music-on');
         };
 
-        // Tentar tocar automaticamente no carregamento
+        // Try autoplay
         const tryAutoplay = () => {
             bgMusic.play().then(() => {
                 setMusicOn();
-            }).catch(e => {
-                console.log('Autoplay bloqueado pelo navegador. Aguardando interação do usuário.', e);
-                // Aguarda o primeiro clique na tela para iniciar
+            }).catch(() => {
                 document.body.addEventListener('click', function startOnFirstClick() {
                     if (!isMusicPlaying) {
-                        bgMusic.play().then(() => {
-                            setMusicOn();
-                        }).catch(err => console.log('Erro ao iniciar áudio:', err));
+                        bgMusic.play().then(() => setMusicOn()).catch(() => {});
                     }
                     document.body.removeEventListener('click', startOnFirstClick);
                 }, { once: true });
@@ -86,90 +86,83 @@ document.addEventListener('DOMContentLoaded', () => {
         tryAutoplay();
         
         musicBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Evita conflito com o clique do body
+            e.stopPropagation();
             if (isMusicPlaying) {
                 bgMusic.pause();
                 setMusicOff();
             } else {
-                bgMusic.play().then(() => {
-                    setMusicOn();
-                });
+                bgMusic.play().then(() => setMusicOn());
             }
         });
     }
 
-    // Renderizar categorias
+    // ── Category filters ──
     function renderCategoryFilters() {
         const categories = Object.keys(categoryColors);
         
         categories.forEach(cat => {
             const btn = document.createElement('button');
-            btn.className = 'cat-pill';
+            btn.className = 'cat-chip';
             btn.dataset.category = cat;
             btn.textContent = cat;
             
-            // Aplicar cores com base na categoria
             const colors = categoryColors[cat];
             btn.style.color = colors.primary;
             btn.style.borderColor = colors.primary;
             
             btn.addEventListener('click', () => {
-                // Remover 'active' de todos
-                document.querySelectorAll('.cat-pill').forEach(p => {
-                    p.classList.remove('active');
-                    p.style.background = 'transparent';
-                    p.style.color = p.dataset.category === 'all' ? 'var(--text-primary)' : categoryColors[p.dataset.category]?.primary;
-                });
-                
-                // Adicionar 'active' no atual
-                btn.classList.add('active');
-                if (cat !== 'all') {
-                    btn.style.background = colors.bg;
-                    btn.style.color = colors.primary;
-                } else {
-                    btn.style.background = 'rgba(255,255,255,0.1)';
-                    btn.style.color = 'var(--text-primary)';
-                }
-                
-                currentCategory = cat;
-                filterCards();
+                setActiveCategory(cat, btn);
             });
             
             categoryFilters.appendChild(btn);
         });
 
-        // Estilizar botão 'all'
-        const allBtn = document.querySelector('.cat-pill[data-category="all"]');
+        // 'all' button handler
+        const allBtn = document.querySelector('.cat-chip[data-category="all"]');
         allBtn.addEventListener('click', () => {
-            document.querySelectorAll('.cat-pill').forEach(p => {
-                p.classList.remove('active');
-                p.style.background = 'transparent';
-                if(p.dataset.category !== 'all') {
-                     p.style.color = categoryColors[p.dataset.category]?.primary;
-                }
-            });
-            allBtn.classList.add('active');
-            allBtn.style.background = 'rgba(255,255,255,0.1)';
-            allBtn.style.color = 'var(--text-primary)';
-            currentCategory = 'all';
-            filterCards();
+            setActiveCategory('all', allBtn);
         });
-        allBtn.style.background = 'rgba(255,255,255,0.1)';
         allBtn.style.borderColor = 'rgba(255,255,255,0.2)';
     }
 
-    // Filtrar cards
+    function setActiveCategory(cat, activeBtn) {
+        document.querySelectorAll('.cat-chip').forEach(p => {
+            p.classList.remove('active');
+            p.style.background = 'transparent';
+            if (p.dataset.category !== 'all') {
+                const c = categoryColors[p.dataset.category];
+                if (c) p.style.color = c.primary;
+            } else {
+                p.style.color = 'var(--text-muted)';
+            }
+        });
+        
+        activeBtn.classList.add('active');
+        if (cat !== 'all') {
+            const colors = categoryColors[cat];
+            activeBtn.style.background = colors.bg;
+            activeBtn.style.color = colors.primary;
+        } else {
+            activeBtn.style.background = 'rgba(255,255,255,0.1)';
+            activeBtn.style.color = 'var(--text-primary)';
+        }
+        
+        currentCategory = cat;
+        filterCards();
+    }
+
+    // ── Filter cards ──
     function filterCards() {
         if (currentCategory === 'all') {
             currentCards = [...flashcardsDB];
         } else {
             currentCards = flashcardsDB.filter(c => c.category === currentCategory);
         }
-        currentIndex = 0; // Reset index when filtering
+        currentIndex = 0;
         renderCurrentCard();
     }
 
-    // Renderizar APENAS o card atual
+    // ── Render current card ──
     function renderCurrentCard() {
         cardsGrid.innerHTML = '';
         
@@ -178,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="empty-state">
                     <div class="empty-icon">📭</div>
                     <h3>Nenhum flashcard encontrado</h3>
-                    <p>Tente selecionar outra categoria.</p>
+                    <p>Tente outra categoria.</p>
                 </div>
             `;
             updateNavigationControls();
@@ -190,11 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const iconSvg = categoryIcons[card.category] || categoryIcons["Sistemas Operacionais"];
         
         const cardEl = document.createElement('div');
-        cardEl.className = 'flashcard-wrapper carousel-card-wrapper';
-        // Add a smooth appearance animation
+        cardEl.className = 'flashcard-wrapper';
         cardEl.style.animation = 'none';
-        cardEl.offsetHeight; // trigger reflow
-        cardEl.style.animation = 'cardAppear 0.4s ease-out both';
+        cardEl.offsetHeight; // reflow
+        cardEl.style.animation = 'cardAppear 0.35s ease-out both';
         
         const isStudied = studiedSet.has(card.id);
         
@@ -236,11 +228,14 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         
-        if(isStudied) {
+        if (isStudied) {
             cardEl.querySelector('.flashcard-front').style.borderColor = colors.primary;
         }
 
-        cardEl.addEventListener('click', () => {
+        cardEl.addEventListener('click', (e) => {
+            // Don't flip if user was swiping
+            if (e.detail === -1) return; // custom flag for swipe
+
             const flashcardInner = cardEl.querySelector('.flashcard');
             flashcardInner.classList.toggle('flipped');
             
@@ -271,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.disabled = currentIndex === currentCards.length - 1;
     }
 
-    // Navigation events
+    // ── Navigation events ──
     prevBtn.addEventListener('click', () => {
         if (currentIndex > 0) {
             currentIndex--;
@@ -286,42 +281,84 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
-            prevBtn.click();
-        } else if (e.key === 'ArrowRight' && !nextBtn.disabled) {
-            nextBtn.click();
-        }
-    });
+    // ── Keyboard navigation ──
+    function setupKeyboardNav() {
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+                prevBtn.click();
+            } else if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+                nextBtn.click();
+            } else if (e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                const flashcard = document.querySelector('.flashcard');
+                if (flashcard) flashcard.classList.toggle('flipped');
 
-    // Embaralhar
+                // Mark as studied
+                const card = currentCards[currentIndex];
+                if (card && !studiedSet.has(card.id)) {
+                    studiedSet.add(card.id);
+                    const front = document.querySelector('.flashcard-front');
+                    const colors = categoryColors[card.category];
+                    if (front && colors) front.style.borderColor = colors.primary;
+                    updateStats();
+                }
+            }
+        });
+    }
+
+    // ── Swipe gestures ──
+    function setupSwipeGestures() {
+        const stage = document.querySelector('.card-stage');
+
+        stage.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].clientX;
+            touchStartY = e.changedTouches[0].clientY;
+            touchStartTime = Date.now();
+        }, { passive: true });
+
+        stage.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            const dy = e.changedTouches[0].clientY - touchStartY;
+            const dt = Date.now() - touchStartTime;
+
+            if (dt > SWIPE_TIME_LIMIT) return;
+            if (Math.abs(dy) > Math.abs(dx)) return; // vertical scroll, ignore
+
+            if (dx < -SWIPE_THRESHOLD && !nextBtn.disabled) {
+                currentIndex++;
+                renderCurrentCard();
+            } else if (dx > SWIPE_THRESHOLD && !prevBtn.disabled) {
+                currentIndex--;
+                renderCurrentCard();
+            }
+        }, { passive: true });
+    }
+
+    // ── Shuffle ──
     shuffleBtn.addEventListener('click', () => {
         currentCards = shuffleArray(currentCards);
-        currentIndex = 0; // reset to first card
+        currentIndex = 0;
         renderCurrentCard();
         
-        // Efeito visual no botão
-        shuffleBtn.classList.add('active');
-        setTimeout(() => shuffleBtn.classList.remove('active'), 200);
+        shuffleBtn.style.transform = 'scale(0.9) rotate(180deg)';
+        setTimeout(() => { shuffleBtn.style.transform = ''; }, 300);
     });
 
-    // Reiniciar
+    // ── Reset ──
     resetBtn.addEventListener('click', () => {
         studiedSet.clear();
         updateStats();
-        // Remove border colors from the current card if visible
+        
         const frontFace = document.querySelector('.flashcard-front');
         if (frontFace) {
-            frontFace.style.borderColor = 'var(--border-color)';
+            frontFace.style.borderColor = 'rgba(255,255,255,0.12)';
         }
         
-        // Efeito visual no botão
-        resetBtn.classList.add('active');
-        setTimeout(() => resetBtn.classList.remove('active'), 200);
+        resetBtn.style.transform = 'scale(0.9) rotate(-360deg)';
+        setTimeout(() => { resetBtn.style.transform = ''; }, 400);
     });
 
-    // Atualizar estatísticas
+    // ── Stats ──
     function updateStats() {
         const total = flashcardsDB.length;
         const studied = studiedSet.size;
@@ -329,8 +366,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         totalCardsEl.textContent = total;
         studiedCardsEl.textContent = studied;
-        progressBar.style.width = `${percent}%`;
-        progressText.textContent = `${percent}% concluído`;
+        progressPercent.textContent = `${percent}%`;
+        
+        // Update ring
+        progressRingFill.setAttribute('stroke-dasharray', `${percent}, 100`);
     }
 
     init();
