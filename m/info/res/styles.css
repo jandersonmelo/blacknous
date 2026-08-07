@@ -1,115 +1,156 @@
-/* styles.css - Maximizado para 30+ páginas A4 */
+/* styles.css - PDF/A4 Viewer Responsivo (Bug-proof) */
 :root {
     --primary: #1e3a8a;       
     --secondary: #2563eb;     
-    --accent: #f59e0b;        
-    --bg-color: #f1f5f9;      
-    --text-color: #1e293b;    
-    --card-bg: #ffffff;       
-    --border-color: #e2e8f0;  
-    --notes-line: #cbd5e1;    
+    --bg-app: #cbd5e1;
+    
+    /* Default para telas verticais (Celular) onde a largura do A4 = 100vw */
+    --cqi: 1vw;
+}
+
+/* Telas horizontais (Computador) onde a largura do A4 trava em 63.63vh (que dá 90vh de altura) */
+@media (min-aspect-ratio: 210/297) {
+    :root {
+        /* 1% da largura (que será travada em 63.63vh) = 0.6363vh */
+        --cqi: 0.636363vh;
+    }
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: 'Outfit', -apple-system, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.8;
-    font-size: 16pt;
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-app);
+    padding: 20px 0;
     -webkit-font-smoothing: antialiased;
 }
 
 .floating-print-btn {
-    position: fixed; bottom: 40px; right: 40px;
+    position: fixed; bottom: 30px; right: 30px;
     background: linear-gradient(135deg, var(--secondary), var(--primary));
-    color: white; border: none; padding: 18px 36px;
-    font-size: 20px; font-weight: 700; font-family: 'Outfit', sans-serif;
+    color: white; border: none; padding: 15px 30px;
+    font-size: 18px; font-weight: 700; font-family: 'Outfit', sans-serif;
     border-radius: 50px; cursor: pointer;
     box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
     z-index: 1000;
 }
 
-.document-container {
-    max-width: 210mm; margin: 40px auto; background: var(--card-bg);
-    padding: 20mm; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-radius: 12px;
+.a4-page {
+    width: 100%;
+    /* No desktop, o max-width será 63.63vh, garantindo que a altura resultante seja 90vh */
+    max-width: 63.6363vh;
+    aspect-ratio: 210 / 297;
+    margin: 0 auto 30px auto; 
+    
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    
+    /* 9.52% de 210mm = ~2cm */
+    padding: calc(9.52 * var(--cqi)); 
+    
+    position: relative;
+    overflow: hidden; 
+    
+    /* TEXTO PRINCIPAL */
+    color: #1e293b;
+    font-size: calc(2.1 * var(--cqi));
+    line-height: 1.6;
 }
 
-/* COVER PAGE */
+h1 { font-size: calc(5 * var(--cqi)); line-height: 1.2; font-weight: 800; }
+h2.section-title { font-size: calc(3.2 * var(--cqi)); color: var(--primary); margin-bottom: calc(2.5 * var(--cqi)); display: flex; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: calc(1 * var(--cqi));}
+h2.section-title span { background: var(--primary); color: white; padding: calc(0.8 * var(--cqi)) calc(1.5 * var(--cqi)); border-radius: calc(1 * var(--cqi)); margin-right: calc(1.5 * var(--cqi)); font-weight: 800;}
+h3 { font-size: calc(2.4 * var(--cqi)); color: var(--primary); margin-bottom: calc(1.5 * var(--cqi)); }
+
+p { margin-bottom: calc(1.5 * var(--cqi)); text-align: justify; }
+ul { list-style: none; }
+li { margin-bottom: calc(1.2 * var(--cqi)); padding-left: calc(3.5 * var(--cqi)); position: relative; text-align: justify; }
+li::before { content: "👉"; position: absolute; left: 0; top: calc(0.2 * var(--cqi)); }
+
+strong { color: #0f172a; font-weight: 800; }
+code { background: #f1f5f9; padding: calc(0.3 * var(--cqi)) calc(0.8 * var(--cqi)); border-radius: calc(0.5 * var(--cqi)); font-family: 'Courier New', monospace; color: #e11d48; font-weight: 700; font-size: 0.95em; border: 1px solid #e2e8f0; }
+.highlight { background: #fef3c7; padding: calc(0.3 * var(--cqi)) calc(0.6 * var(--cqi)); border-radius: calc(0.5 * var(--cqi)); color: #b45309; font-weight: 700; border-bottom: 2px solid #f59e0b; }
+
+/* CAPA */
 .header-cover {
-    text-align: center; margin-bottom: 0; padding-bottom: 25px;
-    border-bottom: 6px solid var(--secondary);
+    height: 100%;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
-    height: 250mm;
-    page-break-after: always;
+    text-align: center;
 }
-.header-cover h1 { font-size: 48px; font-weight: 800; color: var(--primary); margin-bottom: 20px; line-height: 1.2; }
-.header-cover p.subtitle { font-size: 26px; color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
-.header-cover div.details { font-size: 18px; color: #64748b; margin-top: 60px; max-width: 80%; }
-
-/* SECTIONS */
-.section-title {
-    font-size: 32px; color: var(--primary); margin: 0 0 35px 0;
-    display: flex; align-items: center; gap: 15px;
-    padding-bottom: 15px; border-bottom: 3px solid var(--border-color);
-    page-break-before: always;
-    padding-top: 20mm;
-}
-.section-title span {
-    background: var(--primary); color: white; padding: 8px 16px; border-radius: 8px; font-weight: 800;
-}
+.header-cover h1 { color: var(--primary); margin-bottom: calc(3 * var(--cqi)); }
+.header-cover .subtitle { font-size: calc(2.8 * var(--cqi)); color: var(--secondary); font-weight: 700; text-transform: uppercase; margin-bottom: calc(2 * var(--cqi)); letter-spacing: calc(0.2 * var(--cqi));}
+.header-cover .details { font-size: calc(2.2 * var(--cqi)); color: #64748b; margin-top: calc(8 * var(--cqi)); }
 
 /* TOPIC CARDS */
 .topic-card {
-    background: #fdfefb; border: 1px solid var(--border-color);
-    border-left: 8px solid var(--secondary); padding: 30px;
-    border-radius: 10px; margin-bottom: 30px;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
-    page-break-inside: avoid;
+    background: #fdfefb; border: 1px solid #e2e8f0;
+    border-left: calc(1 * var(--cqi)) solid var(--secondary); padding: calc(2.5 * var(--cqi));
+    border-radius: calc(1.5 * var(--cqi)); margin-bottom: calc(2.5 * var(--cqi));
 }
-.topic-card h3 { color: var(--primary); font-size: 24px; margin-bottom: 20px; display: flex; align-items: center; }
-.topic-card ul { list-style: none; }
-.topic-card li { margin-bottom: 15px; padding-left: 35px; position: relative; font-size: 16pt; text-align: justify; }
-.topic-card li::before { content: "👉"; position: absolute; left: 0; top: 4px; font-size: 18px; }
-.topic-card p { font-size: 16pt; margin-bottom: 15px; text-align: justify; }
-strong { color: #0f172a; font-weight: 800; }
-code { background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; color: #e11d48; font-weight: 700; font-size: 0.95em; border: 1px solid #e2e8f0; }
-.highlight { background: #fef3c7; padding: 2px 6px; border-radius: 4px; color: #b45309; font-weight: 700; border-bottom: 2px solid #f59e0b; }
 
-/* SMALL NOTES AREA */
+/* NOTAS PEQUENAS */
 .notes-area {
-    margin-top: 30px; margin-bottom: 40px; page-break-inside: avoid;
-    background: #f8fafc; padding: 25px; border-radius: 8px; border: 2px dashed var(--notes-line);
+    margin-top: calc(3 * var(--cqi)); margin-bottom: calc(4 * var(--cqi));
+    background: #f8fafc; padding: calc(2.5 * var(--cqi)); border-radius: calc(1.5 * var(--cqi)); border: 2px dashed #cbd5e1;
 }
-.notes-area h4 { color: #64748b; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
-.lines { width: 100%; height: 160px; background-image: repeating-linear-gradient(transparent, transparent 39px, var(--notes-line) 40px); border-top: 1px solid var(--notes-line); }
+.notes-area h4 { color: #64748b; font-size: calc(1.8 * var(--cqi)); text-transform: uppercase; margin-bottom: calc(2 * var(--cqi)); }
+.lines { height: calc(12 * var(--cqi)); background-image: repeating-linear-gradient(transparent, transparent calc(3.9 * var(--cqi)), #cbd5e1 calc(4 * var(--cqi))); border-top: 1px solid #cbd5e1; }
 
-/* FULL PAGE NOTES */
+/* FULL PAGE NOTES (MAPA MENTAL E RESUMO) */
 .full-page-notes {
-    page-break-before: always;
-    padding-top: 20mm;
-    height: 297mm;
+    height: 100%;
     display: flex; flex-direction: column;
 }
-.full-page-notes h2 { color: var(--secondary); font-size: 28px; margin-bottom: 25px; text-align: center; text-transform: uppercase; }
+.full-page-notes h2 { color: var(--secondary); font-size: calc(3 * var(--cqi)); margin-bottom: calc(4 * var(--cqi)); text-align: center; text-transform: uppercase; }
 .full-page-lines {
     flex-grow: 1;
     width: 100%;
-    background-image: repeating-linear-gradient(transparent, transparent 39px, var(--notes-line) 40px);
-    border-top: 1px solid var(--notes-line);
-    margin-bottom: 20mm;
+    background-image: repeating-linear-gradient(transparent, transparent calc(3.9 * var(--cqi)), #cbd5e1 calc(4 * var(--cqi)));
+    border-top: 1px solid #cbd5e1;
 }
 
-/* PRINT RULES */
+/* =========================================
+   REGRAS DE IMPRESSÃO (EXATAMENTE A4)
+   ========================================= */
 @media print {
-    @page { size: A4 portrait; margin: 0; }
-    body { background-color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .document-container { margin: 0; padding: 15mm; box-shadow: none; border-radius: 0; max-width: 100%; }
-    .no-print { display: none !important; }
-    .topic-card { border-width: 1px; border-left-width: 6px; box-shadow: none; }
-    .notes-area { background: transparent; }
+    /* O SEGREDO DA MARGEM PERFEITA NA IMPRESSÃO: */
+    /* Ao colocar a margem direto no @page, o navegador nunca deixa nada invadir os 2cm */
+    /* Se o texto for longo, ele corta antes dos 2cm e joga pra outra página automaticamente! */
+    @page { size: A4 portrait; margin: 2cm; }
     
-    .header-cover { height: 267mm; } 
-    .full-page-notes { height: 267mm; padding-top: 10mm; }
+    body { background-color: white; padding: 0; margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .no-print { display: none !important; }
+    
+    .a4-page {
+        max-width: 100%; width: 100%; height: auto !important; aspect-ratio: auto;
+        margin: 0; box-shadow: none; border-radius: 0;
+        
+        page-break-after: always;
+        break-after: page;
+        
+        /* Removemos o padding porque a margem de 2cm agora é do próprio papel (via @page) */
+        padding: 0 !important; 
+        
+        font-size: 16pt;
+    }
+
+    h1 { font-size: 40pt; }
+    h2.section-title { font-size: 24pt; margin-bottom: 20pt; padding-bottom: 10pt; }
+    h2.section-title span { padding: 6pt 12pt; border-radius: 8pt; margin-right: 12pt; }
+    h3 { font-size: 20pt; margin-bottom: 12pt; }
+    p, li { margin-bottom: 10pt; }
+    li { padding-left: 25pt; }
+    li::before { top: 2pt; }
+    
+    .header-cover .subtitle { font-size: 22pt; margin-bottom: 15pt; }
+    .header-cover .details { font-size: 16pt; margin-top: 40pt; }
+    
+    .topic-card { padding: 20pt; border-radius: 12pt; margin-bottom: 20pt; border-width: 1px; border-left-width: 6pt; }
+    .notes-area { padding: 20pt; border-radius: 12pt; margin-top: 20pt; margin-bottom: 30pt; }
+    .notes-area h4 { font-size: 14pt; margin-bottom: 15pt; }
+    .lines { height: 100pt; background-image: repeating-linear-gradient(transparent, transparent 29pt, #cbd5e1 30pt); }
+    
+    .full-page-notes { height: 257mm !important; }
+    .full-page-notes h2 { font-size: 24pt; margin-bottom: 30pt; }
+    .full-page-lines { background-image: repeating-linear-gradient(transparent, transparent 29pt, #cbd5e1 30pt); }
 }
