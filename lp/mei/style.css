@@ -1,0 +1,1155 @@
+/* FONTS */
+@font-face {
+    font-family: 'Stolzl';
+    src: url('fonts/Stolzl-Book-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stolzl';
+    src: url('fonts/Stolzl-Regular-500.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stolzl';
+    src: url('fonts/Stolzl-Medium-600.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stolzl';
+    src: url('fonts/Stolzl-Bold-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ROOT VARIABLES */
+:root {
+    --bg-color: #050505;
+    /* Pure Black for Blacknous */
+    --card-bg: #0a0a0a;
+    --text-color: #f5f5f5;
+    --text-color-light: #111;
+    /* Strict Black for light sections */
+    --accent-color: #00c853;
+    /* Premium green */
+    --accent-glow: rgba(0, 200, 83, 0.5);
+    --secondary-accent: #39FF14;
+    /* The brighter neon from mockup */
+    --font-main: 'Stolzl', sans-serif;
+    --glass-bg: rgba(10, 10, 10, 0.85);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-weight: 400;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* TYPOGRAPHY - MORE VISUAL */
+h1,
+h2,
+h3,
+h4 {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.2rem;
+    line-height: 1.1;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    /**text-transform: uppercase;**/
+}
+
+h2 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Make text description more visual */
+p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: var(--accent-color);
+    text-shadow: 0 0 15px var(--accent-glow);
+}
+
+.highlight-alt {
+    color: var(--secondary-accent);
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.35rem;
+    /* Increased size */
+    color: #333;
+    /* Soft black */
+    max-width: 750px;
+    margin: 0 auto 3.5rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* BUTTONS */
+.btn-primary {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #fff;
+    font-weight: 700;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    box-shadow: 0 0 25px var(--accent-glow);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    /* Hover removed as requested */
+    transform: none;
+    box-shadow: 0 0 25px var(--accent-glow);
+    filter: none;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: var(--accent-color);
+    border: none;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 0 25px var(--accent-glow);
+}
+
+/* .btn-secondary:hover removed */
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* LIGHT SECTION OVERRIDES - FIXING CONTRAST AGGRESSIVELY */
+.light-section {
+    background: #ffffff;
+    color: var(--text-color-light);
+}
+
+/* Force dark color on ALL possible text elements in light sections */
+.light-section h1,
+.light-section h2,
+.light-section h3,
+.light-section h4,
+.light-section strong,
+.light-section b,
+.light-section em,
+.light-section .icon,
+.light-section .center-text {
+    color: #0d0d0d !important;
+}
+
+.light-section p:not(.upsell-alert),
+.light-section li,
+.light-section ul,
+.light-section ol,
+.light-section .subtitle,
+.light-section span:not(.badge):not(.highlight):not(.highlight-alt):not(.item-tag) {
+    color: #0d0d0d !important;
+    /* Pure dark gray, almost black */
+}
+
+/* Specific Card Overrides inside Light Sections */
+.light-section .feature-card,
+.light-section .benefit-item {
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* More distinct shadow */
+}
+
+/* Ensure checkmarks/bullets are visible too */
+.light-section .benefit-item h3 {
+    color: #0d0d0d !important;
+}
+
+/* HERO SECTION - DARK */
+.hero {
+    padding: 0 0 6rem;
+    /* Removed top space */
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background: #000000;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 2;
+    position: relative;
+}
+
+.badge {
+    background: #ff4d4d;
+    /* Solid background for a bar */
+    color: #fff;
+    /* White text on red */
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    border: none;
+}
+
+.hero-sub {
+    max-width: 800px;
+    font-size: 1.3rem;
+    color: #d0d0d0;
+    margin: 2rem 0;
+    /* Add margin since it moved below image */
+}
+
+.hero-media img {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+}
+
+.price-tag {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.price-tag strong {
+    color: var(--accent-color);
+}
+
+/* CAROUSEL */
+.gallery {
+    padding: 5rem 0;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    margin: 2rem auto;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    cursor: grab;
+}
+
+.carousel-track:active {
+    cursor: grabbing;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track img {
+    flex: 0 0 auto;
+    width: 320px;
+    height: auto;
+    margin-right: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+}
+
+.center-text {
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    /* Increased size */
+    color: #333;
+    /* Soft black */
+}
+
+/* PROBLEM / AGITATION */
+.problem {
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
+    padding: 6rem 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+.feature-card {
+    background: #1c1c1c;
+    color: #fff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.feature-card .icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 0;
+    font-size: 1.3rem;
+}
+
+.impact-statement {
+    text-align: center;
+    background: #e8fcf0;
+    padding: 3.5rem;
+    border-radius: 24px;
+    border: 1px solid #bbf7d0;
+}
+
+.impact-statement h3 {
+    color: #000 !important;
+    margin: 1.5rem 0 2.5rem;
+    font-size: 1.8rem;
+    line-height: 1.3;
+}
+
+.impact-statement p {
+    color: #333 !important;
+    /* Soft black */
+    font-size: 1.3rem;
+    /* Increased size */
+    line-height: 1.6;
+}
+
+/* BENEFITS */
+.benefits {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+    padding: 6rem 0;
+    background-color: #f0fff4 !important;
+    /* Light green to match pricing */
+}
+
+.benefit-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.benefit-item {
+    background: #f9f9f9;
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid #eee;
+    border-left: 6px solid var(--accent-color);
+    transition: 0.3s;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-item h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.benefit-item p {
+    color: #444;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.center-cta {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+/* DELIVERABLES - DARK */
+.deliverables {
+    content-visibility: auto;
+    contain-intrinsic-size: 600px;
+    padding: 6rem 0;
+    background: #000000;
+}
+
+.product-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4rem;
+    background: #000000;
+    padding: 4rem;
+    border-radius: 24px;
+    border: none;
+}
+
+.product-info {
+    flex: 1;
+    min-width: 320px;
+}
+
+.item-tag {
+    color: var(--accent-color);
+    font-weight: 800;
+    /* Bolder */
+    font-size: 1.2rem;
+    /* Larger */
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+
+.product-info ul {
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+}
+
+.product-info ul li {
+    list-style-type: none;
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+}
+
+.product-info ul li::before {
+    content: "•";
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+.product-img {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-img img {
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* BONUSES - DARK */
+.bonuses {
+    content-visibility: auto;
+    contain-intrinsic-size: 1200px;
+    padding: 6rem 0;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+}
+
+.bonuses .subtitle {
+    color: #fff !important;
+    opacity: 0.9;
+}
+
+.bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.bonus-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    border: none;
+    text-align: center;
+    transition: 0.3s;
+}
+
+
+
+.bonus-tag {
+    background: #FFD700;
+    /* Yellow */
+    color: #0d0d0d;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 1rem;
+    /* Space from image since it will be below */
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.bonus-card img {
+    border-radius: 12px;
+    margin-bottom: 1.2rem;
+}
+
+.bonus-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.8rem;
+    color: #0d0d0d;
+}
+
+.bonus-card p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* PRICING - ENHANCED VISUALS */
+.pricing {
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
+    padding: 7rem 0;
+    position: relative;
+    background-color: #f0fff4 !important;
+    /* Light green to highlight plans */
+}
+
+.pricing-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 4rem;
+    align-items: stretch;
+}
+
+.pricing-card {
+    background: #ffffff;
+    /* White bg */
+    border-radius: 24px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid #d0d0d0;
+    /* Darker border */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    /* Stronger shadow */
+}
+
+.pricing-card.basic .card-header {
+    padding: 2rem;
+    background: #ffffff;
+    /* White bg */
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.pricing-card.featured {
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 30px 80px rgba(37, 211, 102, 0.25);
+    /* Even stronger shadow */
+    transform: scale(1.05);
+    z-index: 2;
+    background: #ffffff;
+}
+
+.ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 0.6rem 2rem;
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-bottom-left-radius: 12px;
+}
+
+.pricing-card.featured .card-header {
+    /*background: rgba(37, 211, 102, 0.08);
+    /* Lighter green tint */
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.card-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-img {
+    margin-bottom: 2rem;
+    border-radius: 12px;
+}
+
+.check-list {
+    margin: 1.5rem 0 2.5rem;
+    font-size: 1rem;
+    flex: 1;
+}
+
+.check-list li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    color: #444;
+    /* Darker text */
+}
+
+.check-list li::before {
+    content: "✓";
+    color: var(--accent-color);
+    margin-right: 12px;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+/* PRICE VISUALS */
+.price {
+    font-size: 4rem;
+    /* HUGE */
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
+
+    /* Gradient Text Effect for Price - Adjusted for Light BG */
+    background: linear-gradient(to right, #000, #005f2b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.currency {
+    font-size: 2rem;
+    vertical-align: top;
+    margin-right: 5px;
+    color: #333;
+    -webkit-text-fill-color: #333;
+    /* Override gradient */
+}
+
+.installment {
+    color: #555;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.upsell-alert {
+    color: #ff0000 !important;
+    /* Red */
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.arrow-down {
+    display: block;
+    margin: 10px auto 0;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid #ff0000;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* UPSELL POPUP */
+.upsell-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000; /* Overlays the whole screen with dark background */
+    z-index: 99999;
+    display: none; /* hidden by default */
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.upsell-popup-overlay.active {
+    display: flex;
+}
+
+.upsell-timer-banner {
+    background-color: #ff0000;
+    color: #fff;
+    text-align: center;
+    padding: 1.2rem;
+    font-weight: 800;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 100000;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+}
+
+.upsell-popup-content {
+    flex: 1;
+    position: relative;
+    padding: 2rem 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.upsell-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 100001;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.upsell-body {
+    background: #000000;
+    border-radius: 24px;
+    padding: 2.5rem;
+    border: 2px solid var(--accent-color);
+    margin-top: 2rem;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0, 200, 83, 0.15);
+}
+
+.upsell-body h2 {
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.upsell-subtitle {
+    color: #ccc !important;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.upsell-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 auto;
+}
+
+.upsell-card .check-list li {
+    color: #e0e0e0;
+    text-align: left;
+}
+
+.upsell-card .price {
+    background: linear-gradient(to right, #fff, #00c853);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.upsell-card .old-price span {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.btn-secondary-outline {
+    display: block;
+    background: transparent;
+    color: #888;
+    border: 1px solid #444;
+    padding: 1.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-secondary-outline:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+.scarcity-text {
+    text-align: center;
+    color: #ff4d4d;
+    font-weight: 700;
+    margin-top: 4rem;
+    font-size: 1.3rem;
+    animation: flash 2s infinite alternate;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* FAQ */
+.faq {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+    padding: 7rem 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #333;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+
+    /* Larger Video on Mobile - FIX: Use Aspect Ratio */
+    .video-embed-container iframe {
+        width: 100% !important;
+        aspect-ratio: 9 / 16;
+        /* Vertical video format as per probable content, or 16/9 if landscape. User said "Frame" so likely wanted fit. Original was 70vh which is very tall. Let's try to match the container better or standard ratio. 
+        Actually, looking at the embed code in HTML: width="315" height="560". This is a VERTICAL video (9:16). 
+        So aspect-ratio: 9/16 is correct to keep it "perfectly fitted" without distortion. */
+        height: auto !important;
+        /* Let aspect ratio drive height */
+        max-width: none !important;
+        border-radius: 12px !important;
+        /* Keep rounded corners if desired, or 0 if edge to edge. User has 12px in HTML inline. layout says 0 !important previously. Let's keep 0 for edge-to-edge look if margin is negative */
+    }
+
+    .video-embed-container {
+        margin: 2rem auto !important;
+    }
+
+    /* Larger Carousel Images */
+    .carousel-track img {
+        width: 85vw !important;
+        max-width: 450px;
+        height: auto;
+        margin-right: 15px;
+    }
+
+    /* FIX: Deliverables Section Overflow */
+    .product-box {
+        padding: 1.5rem 1rem !important;
+        gap: 1.5rem;
+        flex-direction: column;
+        /* Ensure stacking */
+    }
+
+    .product-info,
+    .product-img {
+        min-width: 0 !important;
+        /* Override desktop min-width */
+        width: 100% !important;
+    }
+
+    /* Upsell popup tweaks for mobile */
+    .upsell-popup-content {
+        padding: 1rem 0.5rem;
+    }
+    .upsell-body {
+        padding: 1.5rem 1rem;
+        border: none;
+    }
+}
+
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 1.5rem 0;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+.accordion-header:hover {
+    color: var(--accent-color);
+}
+
+.accordion-header::after {
+    content: "+";
+    font-size: 1.8rem;
+    color: var(--accent-color);
+}
+
+.accordion-header.active::after {
+    content: "-";
+}
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    color: #ccc;
+    padding-right: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.accordion-body p {
+    padding-bottom: 2rem;
+    color: #ccc;
+}
+
+/* FOOTER */
+footer {
+    content-visibility: auto;
+    background: #050505;
+    padding: 5rem 0;
+    border-top: 1px solid #222;
+    text-align: center;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.legal {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #555;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        width: 92%;
+    }
+
+    .hero-content h1 {
+        font-size: 1.9rem;
+    }
+
+    .pricing-card.featured {
+        transform: none;
+        margin: 0;
+        /* FIX: Remove margin to match Basic plan width */
+    }
+
+    .product-box {
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+    }
+
+    .carousel-track img {
+        width: 260px;
+    }
+
+    .impact-statement {
+        padding: 2rem;
+    }
+
+    .btn-primary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Force Dark text inside light pricing cards */
+.light-section .pricing-card h3,
+.light-section .pricing-card strong {
+    color: #000 !important;
+}
+
+.light-section .pricing-card .installment,
+.light-section .pricing-card .old-price,
+.light-section .pricing-card li,
+.light-section .pricing-card p:not(.upsell-alert):not(.instant-access) {
+    color: #333 !important;
+}
+
+/* BONUS TITLE HIGHLIGHT */
+.bonus-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    /* Responsive large size */
+    font-weight: 800;
+    /* Extra bold */
+    color: var(--accent-color);
+    /* Green */
+    text-align: center;
+    text-transform: uppercase;
+    margin: 3rem 0;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    text-shadow: 0 0 30px rgba(0, 214, 95, 0.3);
+
+    /* Glow effect */
+}
+
+/* Fix specificity for upsell alert to ensure it stays red */
+
+/* Fix color for instant access text */
+.light-section .pricing-card .instant-access {
+    color: #ff0000 !important;
+    font-weight: 700;
+}

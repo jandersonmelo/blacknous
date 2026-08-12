@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Gabarita Informática BB</title>
+    <meta name="description"
+        content="Revisar Informática para o Banco do Brasil com mapas mentais diretos ao ponto e revisões de 5 minutos.">
+    <link rel="preload" href="fonts/Stolzl-Bold-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Stolzl-Regular-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="imgs/mockup-principal.web" as="image">
+    <script>
+        window.pixelId = "6a3dfad6fbd5365057d344eb";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+    </script>
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
+        data-utmify-prevent-subids async defer></script>
+    <style>
+        :root {
+            --dark-bg: #F4F6F9;
+            --darker-bg: #E9ECEF;
+            --light-bg: #FFFFFF;
+            --light-bg-alt: #F8F9FA;
+            --accent-yellow: #F9D616;
+            --accent-blue: #0070ff;
+            --btn-green: #00A650;
+            --btn-hover: #008f45;
+            --text-light: #FFFFFF;
+            --text-dark: #1D2D44;
+            --border-soft: 1px solid rgba(0, 0, 0, 0.08)
+        }
+
+        @font-face {
+            font-family: 'Stolzl';
+            src: url('fonts/Stolzl-Book-400.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap
+        }
+
+        @font-face {
+            font-family: 'Stolzl';
+            src: url('fonts/Stolzl-Regular-500.woff2') format('woff2');
+            font-weight: 500;
+            font-display: swap
+        }
+
+        @font-face {
+            font-family: 'Stolzl';
+            src: url('fonts/Stolzl-Medium-600.woff2') format('woff2');
+            font-weight: 600;
+            font-display: swap
+        }
+
+        @font-face {
+            font-family: 'Stolzl';
+            src: url('fonts/Stolzl-Bold-700.woff2') format('woff2');
+            font-weight: 700;
+            font-display: swap
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Stolzl', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--light-bg);
+            overflow-x: hidden
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border: none !important;
+            box-shadow: none !important;
+            margin: 0 auto
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 0
+        }
+
+        .bg-dark {
+            background: var(--dark-bg);
+            color: var(--text-dark)
+        }
+
+        .bg-darker {
+            background: var(--darker-bg);
+            color: var(--text-dark)
+        }
+
+        .bg-light {
+            background: var(--light-bg);
+            color: var(--text-dark)
+        }
+
+        .bg-light-alt {
+            background: var(--light-bg-alt);
+            color: var(--text-dark)
+        }
+
+        .bg-black-mockup {
+            background: #000000;
+            color: var(--text-light)
+        }
+
+        .hl-yellow {
+            color: var(--accent-yellow);
+            font-weight: 700
+        }
+
+        .hl-blue {
+            color: var(--accent-blue);
+            font-weight: 700
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--btn-green);
+            color: #FFFFFF;
+            font-weight: 700;
+            text-align: center;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 15px rgba(0, 166, 80, 0.4);
+            animation: pulse 2s infinite;
+            transition: transform 0.2s, background 0.2s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto
+        }
+
+        .btn:hover {
+            background: var(--btn-hover);
+            transform: scale(1.05)
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 166, 80, 0.7)
+            }
+
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(0, 166, 80, 0)
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 166, 80, 0)
+            }
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2;
+            margin-bottom: 20px
+        }
+
+        .headline {
+            font-size: 2rem;
+            font-weight: 700
+        }
+
+        .subheadline {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.9
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 50px
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-areas: "head" "mockup" "sub";
+            gap: 20px;
+            text-align: center
+        }
+
+        .hero-left {
+            grid-area: head
+        }
+
+        .hero-right {
+            grid-area: mockup
+        }
+
+        .hero-sub {
+            grid-area: sub
+        }
+
+        .hero-bottom {
+            margin-top: 30px;
+            text-align: center
+        }
+
+        @media (min-width:768px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: "head mockup" "sub mockup";
+                align-items: center;
+                text-align: left
+            }
+
+            .headline {
+                font-size: 2.8rem
+            }
+
+            .hero-bottom {
+                text-align: left;
+                padding-left: 5%
+            }
+
+            .hero-right img {
+                max-width: 500px;
+                margin: 0 auto
+            }
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin: 40px 0
+        }
+
+        .carousel {
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            cursor: grab
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none
+        }
+
+        .carousel:active {
+            cursor: grabbing
+        }
+
+        .carousel-track {
+            display: inline-flex;
+            gap: 20px;
+            padding: 50px 20px;
+            align-items: center
+        }
+
+        .carousel img {
+            width: 70vw;
+            max-width: 400px;
+            border-radius: 15px;
+            flex-shrink: 0;
+            user-select: none;
+            -webkit-user-drag: none;
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        @media (min-width:768px) {
+            .carousel img {
+                width: 40vw
+            }
+        }
+
+        .icon-box {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #FFFFFF;
+            border-radius: 15px;
+            border: var(--border-soft);
+            transition: transform 0.3s, box-shadow 0.3s
+        }
+
+        .icon-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05)
+        }
+
+        .icon-box svg {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+            fill: var(--accent-yellow);
+            display: block;
+            margin: 0 auto 15px auto
+        }
+
+        .bg-light .icon-box svg,
+        .bg-dark .icon-box svg,
+        .bg-light-alt .icon-box svg,
+        .bg-darker .icon-box svg {
+            fill: var(--accent-blue)
+        }
+
+        .icon-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px
+        }
+
+        @media (min-width:768px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .grid-4 {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media (min-width:1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(4, 1fr)
+            }
+        }
+
+        .video-wrapper {
+            max-width: 300px;
+            margin: 0 auto 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--accent-blue);
+            box-shadow: 0 0 20px rgba(0, 112, 255, 0.3)
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            display: block;
+            border-radius: 20px;
+            border: none;
+            pointer-events: none;
+        }
+
+        .prod-list {
+            list-style: none;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            text-align: left
+        }
+
+        .prod-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center
+        }
+
+        .prod-list li::before {
+            content: '✅';
+            margin-right: 10px;
+            color: var(--btn-green)
+        }
+
+        .prod-list li.no-check::before {
+            content: none;
+            margin: 0
+        }
+
+        .bonus-card {
+            background: #FFFFFF;
+            color: var(--text-dark);
+            border-radius: 15px;
+            padding: 20px;
+            border: var(--border-soft);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s
+        }
+
+        .bonus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1)
+        }
+
+        .bonus-card img {
+            max-width: 200px;
+            margin-bottom: 20px
+        }
+
+        .bonus-tag {
+            background: var(--accent-blue);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-transform: uppercase
+        }
+
+        .bonus-price {
+            margin-top: auto;
+            padding-top: 20px;
+            font-size: 1.1rem
+        }
+
+        .price-strike {
+            text-decoration: line-through;
+            color: #e74c3c;
+            font-weight: 700
+        }
+
+        .price-free {
+            color: var(--btn-green);
+            font-weight: 700
+        }
+
+        .planos-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto
+        }
+
+        @media (min-width:768px) {
+            .planos-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        .plano-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s
+        }
+
+        .plano-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1)
+        }
+
+        .plano-completo {
+            border: 2px solid var(--accent-blue);
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(0, 112, 255, 0.2)
+        }
+
+        .plano-completo:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 40px rgba(0, 112, 255, 0.4)
+        }
+
+        @media (max-width:767px) {
+            .plano-completo {
+                transform: scale(1)
+            }
+
+            .plano-completo:hover {
+                transform: translateY(-5px)
+            }
+        }
+
+        .badge-destaque {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #e74c3c;
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1rem;
+            white-space: nowrap
+        }
+
+        .plano-card img {
+            max-width: 350px;
+            width: 90%;
+            margin: 0 auto 20px
+        }
+
+        @media (min-width:768px) {
+            .plano-card img {
+                max-width: 250px
+            }
+        }
+
+        .plano-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-dark)
+        }
+
+        .plano-sub {
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-bottom: 20px
+        }
+
+        .plano-preco-box {
+            margin: 30px 0
+        }
+
+        .preco-de {
+            text-decoration: line-through;
+            color: #95a5a6;
+            font-size: 1.2rem
+        }
+
+        .preco-por {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1;
+            margin: 10px 0
+        }
+
+        .preco-por small {
+            font-size: 1.5rem
+        }
+
+        .preco-parc {
+            font-size: 1.2rem;
+            color: #7f8c8d
+        }
+
+        .oferta-vantajosa {
+            color: #e74c3c;
+            font-weight: 700;
+            animation: pulseText 1.5s infinite;
+            text-align: center;
+            margin-top: 25px;
+            font-size: 1.1rem
+        }
+
+        .seta-animada {
+            color: #e74c3c;
+            font-size: 30px;
+            display: block;
+            text-align: center;
+            animation: bounceDown 1s infinite;
+            margin-top: 5px
+        }
+
+        @keyframes pulseText {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0.6
+            }
+        }
+
+        @keyframes bounceDown {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(10px)
+            }
+        }
+
+        .faq-item {
+            background: #FFFFFF;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border: var(--border-soft)
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+            color: var(--text-dark)
+        }
+
+        .faq-question:hover {
+            background: #F8F9FA
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: var(--accent-blue)
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg)
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            display: none;
+            opacity: 0.9;
+            color: var(--text-dark)
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 0
+        }
+
+        .popup-content {
+            background: #FFFFFF;
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            border-radius: 0;
+            position: relative;
+            text-align: center;
+            animation: fadeIn 0.3s ease;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            border: none;
+            box-shadow: none
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .close-popup {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 28px;
+            line-height: 1;
+            color: #fff;
+            cursor: pointer;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s
+        }
+
+        .close-popup:hover {
+            background: rgba(0, 0, 0, 0.8)
+        }
+
+        .popup-header {
+            background: var(--accent-blue);
+            color: #fff;
+            padding: 20px 55px 20px 20px;
+            font-weight: 700;
+            font-size: 1rem;
+            position: relative;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .popup-body {
+            padding: 30px 20px;
+            color: var(--text-dark);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center
+        }
+
+        .popup-body h2 {
+            color: var(--text-dark);
+            font-size: 1.8rem
+        }
+
+        .popup-prices {
+            margin: 20px 0;
+            font-size: 1.2rem
+        }
+
+        .popup-prices .price-old {
+            text-decoration: line-through;
+            color: #e74c3c;
+            font-size: 1.4rem;
+            font-weight: 700
+        }
+
+        .popup-prices .price-new {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--btn-green)
+        }
+
+        .popup-body img {
+            max-width: 350px;
+            width: 90%;
+            margin: 20px auto
+        }
+
+        @media (min-width:768px) {
+            .popup-body img {
+                max-width: 300px
+            }
+        }
+
+        .btn-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #7f8c8d;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 1rem;
+            background: 0 0;
+            border: none
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: inherit
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            opacity: 0.7
+        }
+
+        .bg-faq {
+            background: #1a1a1a;
+            color: var(--text-light)
+        }
+
+        .bg-faq .section-title {
+            color: var(--text-light)
+        }
+
+        .bg-faq .faq-item {
+            background: #252525;
+            border: 1px solid rgba(255, 255, 255, 0.05)
+        }
+
+        .bg-faq .faq-question {
+            color: var(--text-light)
+        }
+
+        .bg-faq .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05)
+        }
+
+        .bg-faq .faq-answer {
+            color: var(--text-light)
+        }
+
+        .bg-footer {
+            background: #000000;
+            color: var(--text-light)
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BLOCO 1: VENDA IMEDIATA -->
+    <section class="bg-black-mockup">
+        <div class="container hero-grid">
+            <div class="hero-left">
+                <h1 class="headline">Revise em 5 Minutos por dia o que <span class="hl-yellow">realmente gera
+                        pontos</span> em
+                    INFORMÁTICA no Concurso do Banco do Brasil para o cargo de <span
+                        class="hl-yellow">Escriturário</span></h1>
+            </div>
+            <div class="hero-right">
+                <img src="imgs/mockup-principal.webp" alt="Mockup Mapa Gabarita Informática BB" fetchpriority="high"
+                    loading="eager">
+            </div>
+            <div class="hero-sub">
+                <p class="subheadline">Revise Informática Através de Mapas Mentais que Mostram <span
+                        class="hl-yellow">Exatamente o Que a Banca CESGRANRIO Cobra</span>, sem gastar horas estudando
+                    materiais longos e genéricos que nem caem na prova.</p>
+            </div>
+        </div>
+        <div class="container hero-bottom" style="padding-top:0">
+            <a href="#planos" class="btn">ACESSAR AGORA!</a>
+        </div>
+    </section>
+
+    <!-- BLOCO 2: DEMONSTRATIVO -->
+    <section class="bg-light text-center">
+        <div class="container" style="padding-bottom:20px">
+            <h2 class="section-title">Veja como é simples, direto e aplicável</h2>
+            <p class="subheadline">Vamos te mostrar na prática como o Mapa Gabarita Informática BB organiza o conteúdo.
+                Esse é exatamente o formato que você vai receber — e que você vai revisar em 5 minutos.</p>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <img src="imgs/carrossel-1.webp" alt="Demonstrativo 1" loading="lazy">
+                    <img src="imgs/carrossel-2.webp" alt="Demonstrativo 2" loading="lazy">
+                    <img src="imgs/carrossel-3.webp" alt="Demonstrativo 3" loading="lazy">
+                    <img src="imgs/carrossel-4.webp" alt="Demonstrativo 4" loading="lazy">
+                    <img src="imgs/carrossel-5.webp" alt="Demonstrativo 5" loading="lazy">
+                    <img src="imgs/carrossel-6.webp" alt="Demonstrativo 6" loading="lazy">
+                    <img src="imgs/carrossel-7.webp" alt="Demonstrativo 7" loading="lazy">
+                    <!-- Clones loop infinito -->
+                    <img src="imgs/carrossel-1.webp" alt="Demonstrativo 1" loading="lazy">
+                    <img src="imgs/carrossel-2.webp" alt="Demonstrativo 2" loading="lazy">
+                    <img src="imgs/carrossel-3.webp" alt="Demonstrativo 3" loading="lazy">
+                    <img src="imgs/carrossel-4.webp" alt="Demonstrativo 4" loading="lazy">
+                    <img src="imgs/carrossel-5.webp" alt="Demonstrativo 5" loading="lazy">
+                    <img src="imgs/carrossel-6.webp" alt="Demonstrativo 6" loading="lazy">
+                    <img src="imgs/carrossel-7.webp" alt="Demonstrativo 7" loading="lazy">
+                </div>
+            </div>
+        </div>
+        <div class="container" style="padding-top:0">
+            <p class="subheadline"><span class="hl-blue">100% visual e organizado.</span> Projetado para gabaritar sem
+                perder tempo.</p>
+        </div>
+    </section>
+
+    <!-- BLOCO 3: BENEFÍCIOS -->
+    <section class="bg-dark">
+        <div class="container">
+            <h2 class="section-title">O que muda na prática quando você aplica o Mapa Gabarita Informática BB</h2>
+            <p class="subheadline text-center" style="margin-bottom:50px">De 4 acertos para <span class="hl-yellow">7, 8
+                    ou até 10 questões</span>. Isso é a diferença entre "quase passou" e "<span
+                    class="hl-yellow">APROVADO</span>".</p>
+
+            <div class="grid-2">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                    </svg>
+                    <h3>Não gaste todo seu dia estudando</h3>
+                    <p>Se você é muito ocupado e não tem tempo para estudar várias horas, esse material é para você,
+                        você estuda apenas o que aprova.</p>
+                </div>
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                    </svg>
+                    <h3>Memoriza o que realmente importa</h3>
+                    <p>Você para de gastar tempo aprendendo conteúdo que nunca caiu em prova. Seu foco é 100% no que a
+                        Cesgranrio cobra de verdade.</p>
+                </div>
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+                    </svg>
+                    <h3>Segurança na hora da prova</h3>
+                    <p>Saber que você estudou o que realmente cai na banca, ao invés de gastar várias horas com conteúdo
+                        vazio e genérico.</p>
+                </div>
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" />
+                    </svg>
+                    <h3>Revisar de Qualquer Lugar, a Qualquer Hora</h3>
+                    <p>Esteja onde estiver — ônibus, intervalo do trabalho, pausa do café — você puxa o Mapa Gabarita no
+                        celular ou tablet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 4: URGÊNCIA + VÍDEO -->
+    <section class="bg-light-alt text-center">
+        <div class="container">
+            <h2 class="section-title hl-blue" style="margin-bottom:20px">A próxima data de prova do Banco do Brasil está
+                próxima. Seus concorrentes já estão estudando.</h2>
+
+            <div class="video-wrapper">
+                <iframe
+                    src="https://www.youtube.com/embed/0Ir_Gf8F154?autoplay=1&loop=1&mute=1&controls=0&playlist=0Ir_Gf8F154&playsinline=1"
+                    allow="autoplay; fullscreen" tabindex="-1"></iframe>
+            </div>
+
+            <p class="subheadline" style="margin-bottom:30px">Comece agora e Aumente suas chances de aprovação antes que
+                a prova chegue.</p>
+            <a href="#planos" class="btn">COMEÇAR AGORA!</a>
+        </div>
+    </section>
+
+    <!-- BLOCO 5: IDEAL PARA VOCÊ -->
+    <section class="bg-dark">
+        <div class="container">
+            <h2 class="section-title">IDEAL PARA VOCÊ QUE DESEJA:</h2>
+            <div class="grid-2">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                    </svg>
+                    <h3>Estudar em pouco tempo</h3>
+                    <p>Seu dia é corrido. Trabalho. Responsabilidades. Vida real. Você não consegue passar 2 horas
+                        estudando Informática todo dia. Mas 5 minutos? Isso você consegue.</p>
+                </div>
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                    </svg>
+                    <h3>Não esquecer mais o conteúdo estudado</h3>
+                    <p>Você sabe que estudou aquilo, mas não consegue lembrar. O Mapa Gabarita usa revisão visual +
+                        palavras-chave para fixar na memória de forma permanente. Você não vai esquecer na prova.</p>
+                </div>
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
+                    </svg>
+                    <h3>Aumentar Seus Acertos em Informática</h3>
+                    <p>Atualmente você acerta 3, 4 questões de Informática. Você quer chegar a 7, 8 ou 10. Essa
+                        diferença pode ser a aprovação. Método visual + conteúdo focado + revisão estratégica = você
+                        acerta muito mais.</p>
+                </div>
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+                    </svg>
+                    <h3>Ter segurança na hora da prova</h3>
+                    <p>"Será que vou passar?" "E se eu esquecer tudo de novo?" Essa ansiedade te paralisa. Com o Mapa
+                        Gabarita, você tem segurança: você está estudando exatamente o que já caiu.</p>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top:30px">
+                <a href="#planos" class="btn">ACESSAR MEUS MAPAS AGORA!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 6: PRODUTO PRINCIPAL -->
+    <section class="bg-black-mockup">
+        <div class="container hero-grid">
+            <div class="hero-left">
+                <h2 class="section-title">Tudo o que você vai receber no Mapa Gabarita Informática BB</h2>
+                <h3 class="hl-blue" style="font-size:1.5rem">MAPA GABARITA INFORMÁTICA BB</h3>
+            </div>
+            <div class="hero-right">
+                <img src="imgs/mockup-principal.webp" alt="Produto Principal" loading="lazy" style="width:100%">
+            </div>
+            <div class="hero-sub" style="text-align:left">
+                <p><strong class="hl-yellow" style="font-size: 1.1rem">+60 Mapas Mentais de Informática</strong> para
+                    prova do Banco do Brasil, cargo <span class="hl-blue" style="font-weight: 700;">escriturário</span>
+                </p>
+                <ul class="prod-list">
+                    <li>Sistemas Operacionais (Windows e Linux)</li>
+                    <li>Edição de Textos, Planilhas e Apresentações</li>
+                    <li>Redes de Computadores</li>
+                    <li>Navegadores Web</li>
+                    <li>Correio Eletrônico</li>
+                    <li>Redes Sociais</li>
+                    <li>Segurança da Informação</li>
+                </ul>
+                <p class="hl-blue" style="font-size:1.2rem;font-weight:700">E muito mais …</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 7: BÔNUS -->
+    <section class="bg-darker">
+        <div class="container">
+            <h2 class="section-title">E além do Mapa Gabarita Informática BB, você ainda recebe estes <span
+                    class="hl-yellow">bônus estratégicos</span>:</h2>
+            <div class="grid-4">
+                <div class="bonus-card">
+                    <span class="bonus-tag">Bônus 1</span>
+                    <img src="imgs/bonus-1.webp" alt="50 Questões" loading="lazy">
+                    <h3>50 Questões de Informática resolvidas e comentadas de edições anteriores</h3>
+                    <p>50 questões reais de edições anteriores do concurso do Banco do Brasil para Escriturário. Você
+                        não só memoriza a teoria. Você treina a prática. Quando chegar na prova real, você já viu
+                        questões parecidas e sabe exatamente como a Cesgranrio formula as perguntas. Aumenta
+                        significativamente seus acertos.</p>
+                    <div class="bonus-price">
+                        <span class="price-strike">R$ 34,90</span><br>
+                        <span class="price-free">Grátis no Plano Completo</span>
+                    </div>
+                </div>
+
+                <div class="bonus-card">
+                    <span class="bonus-tag">Bônus 2</span>
+                    <img src="imgs/bonus-2.webp" alt="Apostila" loading="lazy">
+                    <h3>Resumo em Apostila de Informática pronta para Imprimir</h3>
+                    <p>Um resumo em formato apostila com os pontos-chave de cada assunto. Condensado. Sem floreios.
+                        Direto ao ponto. Nem sempre você quer abrir um mapa mental. Às vezes você quer ler um resuminho
+                        rápido. Essa apostila é perfeita para revisão de última hora — 10 minutos antes da prova.</p>
+                    <div class="bonus-price">
+                        <span class="price-strike">R$ 29,90</span><br>
+                        <span class="price-free">Grátis no Plano Completo</span>
+                    </div>
+                </div>
+
+                <div class="bonus-card">
+                    <span class="bonus-tag">Bônus 3</span>
+                    <img src="imgs/bonus-3.webp" alt="Quiz" loading="lazy">
+                    <h3>Quiz com 100 perguntas de informática</h3>
+                    <p>Um quiz interativo com 100 perguntas de múltipla escolha. Você responde. O sistema diz se acertou
+                        ou errou. E te mostra a explicação de cada resposta. Pode fazer quantas vezes quiser. Você testa
+                        seu conhecimento de forma gamificada.</p>
+                    <div class="bonus-price">
+                        <span class="price-strike">R$ 39,90</span><br>
+                        <span class="price-free">Grátis no Plano Completo</span>
+                    </div>
+                </div>
+
+                <div class="bonus-card">
+                    <span class="bonus-tag">Bônus 4</span>
+                    <img src="imgs/bonus-4.webp" alt="Flashcards" loading="lazy">
+                    <h3>50 Flashcards de Informática para revisar em qualquer lugar</h3>
+                    <p>Cartões digitais com uma pergunta de um lado e a resposta do outro. Você abre no celular.
+                        Imprime. Testa se sabe a resposta. Simples e poderoso. Ideais para: ⏰ Fila do banco 🚌 Ônibus ☕
+                        Pausa do café 🛏️ Antes de dormir</p>
+                    <div class="bonus-price">
+                        <span class="price-strike">R$ 24,90</span><br>
+                        <span class="price-free">Grátis no Plano Completo</span>
+                    </div>
+                </div>
+
+                <div class="bonus-card">
+                    <span class="bonus-tag">Bônus 5</span>
+                    <img src="imgs/bonus-5.webp" alt="Dicionário" loading="lazy">
+                    <h3>Dicionário com 100 termos técnicos de Informática</h3>
+                    <p>Um dicionário em PDF com 100 termos técnicos. Cada termo tem: 📌 Definição clara e concisa 💡
+                        Exemplo prático 🔗 Referência de quando aparece em prova Organizado em ordem alfabética para
+                        busca rápida. Você não precisa perder tempo em Google tentando entender um termo.</p>
+                    <div class="bonus-price">
+                        <span class="price-strike">R$ 29,90</span><br>
+                        <span class="price-free">Grátis no Plano Completo</span>
+                    </div>
+                </div>
+
+                <div class="bonus-card">
+                    <span class="bonus-tag">Bônus 6</span>
+                    <img src="imgs/bonus-6.webp" alt="Provas" loading="lazy">
+                    <h3>Todas as provas anteriores do Banco do Brasil nos últimos 10 anos para escriturário</h3>
+                    <p>Acesso a todas as provas anteriores (2014-2024) de Escriturário. Compiladas em um arquivo
+                        organizador por ano. Você consegue ver exatamente o que caiu, quando caiu e como caiu. Isso
+                        elimina qualquer dúvida sobre o que estudar. É como ter um mapa do tesouro da banca.</p>
+                    <div class="bonus-price">
+                        <span class="price-strike">R$ 49,90</span><br>
+                        <span class="price-free">Grátis no Plano Completo</span>
+                    </div>
+                </div>
+
+                <div class="bonus-card">
+                    <span class="bonus-tag">Bônus 7</span>
+                    <img src="imgs/bonus-7.webp" alt="Ranking" loading="lazy">
+                    <h3>Ranking dos assuntos mais cobrados</h3>
+                    <p>Você SABE com precisão matemática em que focar primeiro. Não é palpite. É dado. Você estuda na
+                        ordem de importância real. Isso maximiza seus acertos com tempo limitado. Cada assunto mostra o
+                        número exato de vezes que apareceu e o percentual.</p>
+                    <div class="bonus-price">
+                        <span class="price-strike">R$ 19,90</span><br>
+                        <span class="price-free">Grátis no Plano Completo</span>
+                    </div>
+                </div>
+
+                <div class="bonus-card">
+                    <span class="bonus-tag">Bônus 8</span>
+                    <img src="imgs/bonus-8.webp" alt="Atualização" loading="lazy">
+                    <h3>Atualização Pós-edital</h3>
+                    <p>Quando sair um novo edital, você recebe uma atualização automática. Vamos revisar o edital. Vamos
+                        ajustar os mapas mentais se algo mudou. Você recebe tudo pronto. Sem custo adicional. Você nunca
+                        fica obsoleto. Mesmo que a banca mude algo, você está atualizado.</p>
+                    <div class="bonus-price">
+                        <span class="price-strike">R$ 21,80</span><br>
+                        <span class="price-free">Grátis no Plano Completo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 8: PLANOS -->
+    <section id="planos" class="bg-light text-center">
+        <div class="container">
+            <h2 class="section-title">Escolha a melhor opção para você:</h2>
+            <p class="subheadline" style="margin-bottom:50px">Ambas vêm com garantia de 7 dias.</p>
+
+            <div class="planos-grid">
+                <!-- Plano Básico -->
+                <div class="plano-card" style="border: 1px solid rgba(0, 0, 0, 0.15);">
+                    <div class="plano-title">PLANO BÁSICO</div>
+                    <img src="imgs/plano-basico.webp" alt="Plano Básico" loading="lazy" style="width:100%">
+                    <p style="font-weight:700;margin-bottom:15px">Mapa Gabarita Informática BB</p>
+                    <ul class="prod-list" style="text-align:left;font-size:1rem;margin:0 auto;display:inline-block">
+                        <li>+60 Mapas Mentais de Informática</li>
+                        <li>Pronto para Imprimir</li>
+                        <li>Revisão Visual Estratégica</li>
+                        <li class="no-check">⚡Acesso Imediato</li>
+                        <li class="no-check">📝 Formato PDF</li>
+                        <li class="no-check">💎 Acesso Vitalício</li>
+                        <li class="no-check">🛡️ Garantia de 7 dias</li>
+                    </ul>
+                    <div class="plano-preco-box">
+                        <div class="preco-de">De R$ 179,00 por:</div>
+                        <div class="preco-por"><small>R$</small> 17,90</div>
+                        <div class="preco-parc">ou 3x de R$ 6,39 no cartão</div>
+                    </div>
+                    <a href="#" class="btn btn-basico" style="padding:15px;font-size:1.1rem">QUERO O BÁSICO</a>
+                    <div class="oferta-vantajosa">Atenção: Temos uma oferta ainda mais vantajosa para você! Veja logo
+                        abaixo.</div>
+                    <div class="seta-animada">▼</div>
+                </div>
+
+                <!-- Plano Completo -->
+                <div class="plano-card plano-completo">
+                    <div class="badge-destaque">MAIS VENDIDO 🔥</div>
+                    <div class="plano-title">PLANO COMPLETO</div>
+                    <div class="plano-sub">✨ TODOS OS BÔNUS INCLUSOS</div>
+                    <img src="imgs/plano-completo.webp" alt="Plano Completo" loading="lazy" style="width:100%">
+                    <p style="font-weight:700;color:var(--accent-blue)">Todos Materiais (Recebimento Imediato)</p>
+                    <p style="font-weight:700;margin-top:10px">Mapa Gabarita Informática BB</p>
+                    <ul class="prod-list"
+                        style="text-align:left;font-size:0.95rem;margin:10px auto;display:inline-block">
+                        <li>+60 Mapas Mentais de Informática</li>
+                        <li>50 Questões Resolvidas</li>
+                        <li>Apostila Resumida para Imprimir</li>
+                        <li>Quiz 100 Perguntas</li>
+                        <li>50 Flashcards</li>
+                        <li>Dicionário 100 Termos</li>
+                        <li>Todas as Provas BB (10 anos)</li>
+                        <li>Ranking dos Assuntos</li>
+                        <li>Atualização Pós-Edital</li>
+                        <li>Pronto para Imprimir</li>
+                        <li>Revisão Visual Estratégica</li>
+                        <li class="no-check">⚡ Acesso Imediato</li>
+                        <li class="no-check">📝 Formato PDF</li>
+                        <li class="no-check">💎 Acesso Vitalício</li>
+                        <li class="no-check">🛡️ Garantia de 7 dias</li>
+                    </ul>
+                    <div class="plano-preco-box">
+                        <div class="preco-de">De R$ 279,00 por:</div>
+                        <div class="preco-por"><small>R$</small> 27,90</div>
+                        <div class="preco-parc">ou 6x de R$ 5,24 no cartão</div>
+                    </div>
+                    <a href="https://pay.kiwify.com.br/uE6Ohh4" class="btn" style="padding:15px;font-size:1.1rem">QUERO
+                        O COMPLETO</a>
+                </div>
+            </div>
+            <h3 class="hl-blue" style="margin-top:50px;font-size:1.5rem">APROVEITE AGORA: Você não vai encontrar esse
+                preço depois!</h3>
+        </div>
+    </section>
+
+    <!-- BLOCO 9: FAQ -->
+    <section class="bg-faq">
+        <div class="container" style="max-width:800px">
+            <h2 class="section-title">PERGUNTAS FREQUENTES</h2>
+
+            <div class="faq-item">
+                <div class="faq-question active">1. Como vou acessar o material após a compra?</div>
+                <div class="faq-answer" style="display:block">
+                    Simples. Você compra agora e IMEDIATAMENTE, você recebe um email com o link de acesso. Você clica no
+                    link. Você entra na sua conta. Você baixa todos os PDFs. Não é complicado. Não tem segredos. E se
+                    por algum motivo você não receber o email, você pode entrar em contato conosco que reenviamos na
+                    hora.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">2. É realmente garantia de 7 dias? Como funciona?</div>
+                <div class="faq-answer">
+                    Sim. É 100% garantia de 7 dias. Se você usar o material por 7 dias e não se sentir mais confiante,
+                    você entra em contato. Você pede devolução. Nós devolvemos todo o seu dinheiro. Sem perguntas. Sem
+                    formulários longos. A garantia existe porque temos certeza que o material funciona. Mas queremos que
+                    você tenha segurança total.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">3. Qual é a forma de pagamento?</div>
+                <div class="faq-answer">
+                    Você pode pagar por:<br>✅ Cartão de crédito (à vista ou parcelado em 3x sem juros)<br>✅ PIX (à
+                    vista)<br>Escolha a forma que preferir. O acesso é liberado na hora.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">4. Eu vou receber aulas em vídeo ou é só material em PDF?</div>
+                <div class="faq-answer">
+                    É material em PDF. Mapas mentais. Questões. Flashcards. Apostila. Tudo em formato digital que você
+                    consegue acessar em qualquer dispositivo — celular, tablet, computador. Não é vídeo porque você pode
+                    revisar em 5 minutos em qualquer lugar. Vídeo demanda tempo dedicado.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">5. Quanto tempo eu tenho para usar o material?</div>
+                <div class="faq-answer">
+                    💎 Acesso vitalício. Você compra hoje e consegue acessar para sempre. Sem expiração. Você pode
+                    revisar quando quiser. Quantas vezes quiser.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">6. Esse material é específico para o cargo de Escriturário?</div>
+                <div class="faq-answer">
+                    Sim. 100% específico. Os 60+ mapas mentais foram criados analisando APENAS as provas de Escriturário
+                    do Banco do Brasil. Se você está estudando para outro cargo ou outro banco, você precisaria de
+                    material diferente. Mas para Escriturário, é o mais focado que existe.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">7. E se o edital mudar? O material fica obsoleto?</div>
+                <div class="faq-answer">
+                    Não. Quando sair novo edital, a gente revisa e atualiza o material. Você recebe as atualizações
+                    automaticamente. Sem custo adicional. É por isso que incluímos "Atualização Pós-Edital" como bônus.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 10: RODAPÉ -->
+    <footer class="bg-footer" style="padding:40px 20px; background-color: #000000;">
+        <div class="container" style="padding:0">
+            <p>&copy; <span id="ano-atual"></span> Blacknous | Todos os direitos reservados.</p>
+            <p style="font-size:0.8rem;margin:20px 0">Este site não é afiliado ao Facebook ou a qualquer entidade do
+                Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site. A compra
+                desse material não garante nenhum tipo de resultado. Fazemos todos os esforços para indicar claramente e
+                mostrar todas as provas do produto e usamos resultados reais de alunos.</p>
+            <p style="font-size:0.8rem">Todos os direitos sobre a obra “Mapa Gabarita Informática BB” são reservados ao
+                produtor, nos termos da Lei nº 9.610/98 (Lei de Direitos Autorais). A reprodução não autorizada desta
+                publicação, no todo ou em parte, por quaisquer meios, constitui violação dos direitos autorais (Art. 184
+                do Código Penal e Lei 9.610/98), sujeitando os infratores às sanções civis e criminais previstas na
+                legislação aplicável. Em caso de dúvidas, suporte ou problemas de acesso, entre em contato pelo nosso
+                e-mail de atendimento: suporte@blacknous.com Horário de atendimento: segunda a sexta, das 8h às 16h.</p>
+        </div>
+    </footer>
+
+    <!-- POPUP -->
+    <div id="popupOferta" class="popup-overlay">
+        <div class="popup-content">
+            <button class="close-popup">&times;</button>
+            <div class="popup-header">
+                <span>A PROMOÇÃO ENCERRA EM</span>
+                <span id="timer"
+                    style="font-size: 1.5rem; background: rgba(0,0,0,0.2); padding: 5px 15px; border-radius: 8px; letter-spacing: 2px;">15:00</span>
+            </div>
+            <div class="popup-body">
+                <h2>Você ganhou um desconto exclusivo!</h2>
+                <p style="font-size:1.1rem;margin-top:10px">Leve o <strong>PLANO COMPLETO</strong> com todos os bônus.
+                </p>
+                <div class="popup-prices">
+                    <span class="price-old">De R$ 27,90</span> por <br>
+                    <span class="price-new">R$ 22,90</span><br>
+                    <span style="font-size: 1rem; color: #7f8c8d; display: inline-block; margin-top: 5px;">ou 5x de R$
+                        5,07 no cartão</span>
+                </div>
+                <img src="imgs/plano-completo.webp" alt="Plano Completo">
+                <ul class="prod-list"
+                    style="text-align:left;font-size:0.9rem;margin:10px auto;display:inline-block;max-width:300px">
+                    <li>+60 Mapas Mentais</li>
+                    <li>TODOS OS 8 BÔNUS INCLUSOS</li>
+                    <li class="no-check">💎 Acesso Vitalício + Atualizações</li>
+                </ul>
+                <br>
+                <a href="https://pay.kiwify.com.br/xcElOxd" class="btn"
+                    style="padding:15px;width:90%;font-size:1.1rem;margin-top:10px">QUERO O COMPLETO
+                    POR R$ 22,90</a><br>
+                <a href="https://pay.kiwify.com.br/48neYS9" class="btn-link">Não, quero apenas o básico por R$ 17,90</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS OTIMIZADOS -->
+    <script defer>
+        document.getElementById('ano-atual').textContent = new Date().getFullYear();
+        document.querySelectorAll('.faq-question').forEach(e => { e.addEventListener('click', () => { let a = e.nextElementSibling; let o = a.style.display === 'block'; document.querySelectorAll('.faq-answer').forEach(x => x.style.display = 'none'); document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active')); if (!o) { a.style.display = 'block'; e.classList.add('active') } }) });
+        document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function (e) { const t = this.getAttribute('href'); if (t === '#') return; e.preventDefault(); const g = document.querySelector(t); if (g) g.scrollIntoView({ behavior: 'smooth' }) }) });
+        const track = document.getElementById('carousel'); let isDown = !1, startX, scrollLeft, autoScroll = !0; if (track) { track.addEventListener('mousedown', e => { isDown = !0; autoScroll = !1; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft }); track.addEventListener('mouseleave', () => { isDown = !1; autoScroll = !0 }); track.addEventListener('mouseup', () => { isDown = !1; autoScroll = !0 }); track.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - track.offsetLeft; const w = (x - startX) * 2; track.scrollLeft = scrollLeft - w }); track.addEventListener('touchstart', () => { autoScroll = !1 }, { passive: !0 }); track.addEventListener('touchend', () => { autoScroll = !0 }, { passive: !0 }); function step() { if (autoScroll) { track.scrollLeft += 1; if (track.scrollLeft >= track.scrollWidth / 2) { track.scrollLeft = 0 } } requestAnimationFrame(step) } requestAnimationFrame(step) }
+        const popup = document.getElementById('popupOferta'); let timerInterval; function startTimer() { if (timerInterval) return; let d = 15 * 60; let ds = document.getElementById('timer'); timerInterval = setInterval(() => { let m = parseInt(d / 60, 10); let s = parseInt(d % 60, 10); m = m < 10 ? "0" + m : m; s = s < 10 ? "0" + s : s; ds.textContent = m + ":" + s; if (--d < 0) d = 0 }, 1000) }
+        document.querySelectorAll('.btn-basico').forEach(b => { b.addEventListener('click', e => { e.preventDefault(); popup.style.display = 'flex'; startTimer() }) });
+        document.querySelectorAll('.close-popup,.close-popup-text').forEach(b => { b.addEventListener('click', e => { e.preventDefault(); popup.style.display = 'none' }) });
+    </script>
+</body>
+
+</html>
