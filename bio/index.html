@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blacknous Finanças e Digital | Links</title>
+
+    <!-- Meta tags SEO -->
+    <meta name="description"
+        content="Gestão inteligente e estruturada para sua empresa. Acesse nossos canais de atendimento e redes sociais.">
+    <meta name="theme-color" content="#07080a">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Animated Background Orbs -->
+    <div class="bg-orbs" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- Profile Section -->
+        <header class="profile">
+            <div class="profile-img-wrapper" id="profile-picture">
+                <img src="logo.webp" alt="Logo da Blacknous Assessoria Contábil" class="profile-img">
+            </div>
+            <h1 class="profile-name">Blacknous</h1>
+            <p class="profile-desc">Soluções inteligente e estruturada para pequenas e médias empresas.</p>
+        </header>
+
+        <!-- Links Section -->
+        <nav class="links-wrapper" aria-label="Links Sociais e Contato">
+
+            <a href="https://wa.me/5591984938236" class="link-item" target="_blank" rel="noopener noreferrer"
+                id="link-whatsapp">
+                <div class="link-icon-wrapper">
+                    <i class="fa-brands fa-whatsapp icon-whatsapp"></i>
+                </div>
+                <span class="link-text">Contato via WhatsApp</span>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+            <a href="https://www.youtube.com/@blacknousc" class="link-item" target="_blank" rel="noopener noreferrer"
+                id="link-youtube">
+                <div class="link-icon-wrapper">
+                    <i class="fa-brands fa-youtube icon-youtube"></i>
+                </div>
+                <span class="link-text">Canal no YouTube</span>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+            <a href="https://instagram.com/blacknousc" class="link-item" target="_blank" rel="noopener noreferrer"
+                id="link-instagram">
+                <div class="link-icon-wrapper">
+                    <i class="fa-brands fa-instagram icon-instagram"></i>
+                </div>
+                <span class="link-text">Instagram</span>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+        </nav>
+
+        <!-- Promo Banner Section -->
+        <div class="mini-banner" id="banner-mei-lowticket">
+            <!-- Background Animated Chart -->
+            <div class="banner-chart-bg">
+                <svg viewBox="0 0 800 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="chart-green-grow" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00ff66" stop-opacity="0.25" />
+                            <stop offset="100%" stop-color="#00ff66" stop-opacity="0" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Grid de Fundo Premium -->
+                    <g stroke="rgba(255, 255, 255, 0.02)" stroke-width="1">
+                        <line x1="0" y1="25" x2="800" y2="25" />
+                        <line x1="0" y1="50" x2="800" y2="50" />
+                        <line x1="0" y1="75" x2="800" y2="75" />
+                        <line x1="200" y1="0" x2="200" y2="100" />
+                        <line x1="400" y1="0" x2="400" y2="100" />
+                        <line x1="600" y1="0" x2="600" y2="100" />
+                    </g>
+                    <!-- Área do Gráfico (Preenchida dinamicamente) -->
+                    <path id="chart-area" d="" fill="url(#chart-green-grow)" />
+                    <!-- Linha do Gráfico (Desenhada dinamicamente) -->
+                    <path id="chart-stroke" d="" fill="none" stroke="#00ff66" stroke-width="3" stroke-linecap="round" />
+                    <!-- Ponto de Crescimento Luminoso -->
+                    <circle id="chart-dot" cx="800" cy="20" r="4.5" fill="#ffffff" />
+                </svg>
+            </div>
+
+            <!-- Banner Content -->
+            <div class="banner-content">
+                <div class="banner-header">
+                    <img src="mei-lowticket.webp" alt="MEI para Low Ticket" class="banner-img">
+                    <div class="banner-title-info">
+                        <span class="banner-tag"><i class="fa-solid fa-fire-flame-curved"></i> Método Exclusivo</span>
+                        <h2 class="banner-product-name">MEI para Low Ticket</h2>
+                    </div>
+                </div>
+
+                <!-- Stats Row (indicators: ROAS and Profit in Green) -->
+                <div class="banner-metrics">
+                    <div class="metric-box">
+                        <span class="metric-label">Retorno (ROAS)</span>
+                        <span class="metric-value" id="roas-value-text"><i class="fa-solid fa-chart-line"></i> 8.4x</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Lucro Líquido</span>
+                        <span class="metric-value" id="lucro-value-text"><i class="fa-solid fa-wallet"></i> +76%</span>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="https://www.blacknous.com/lp/lowticket" class="banner-cta-button"
+                    rel="noopener noreferrer">
+                    <span>Acessar Manual MEI</span>
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>Blacknous Finanças e Digital Ltda &copy; <span id="year"></span></p>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript para Footer dinâmico e Gráfico Interativo -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        function animateBannerChart() {
+            const strokePath = document.getElementById('chart-stroke');
+            const fillPath = document.getElementById('chart-area');
+            const dot = document.getElementById('chart-dot');
+            const roasText = document.getElementById('roas-value-text');
+            const lucroText = document.getElementById('lucro-value-text');
+            
+            if (!strokePath || !fillPath || !dot || !roasText || !lucroText) return;
+            
+            function getY(x, t) {
+                // Curva base de crescimento de y=92 (esquerda) até y=20 (direita)
+                const base = 92 - 72 * Math.pow(x / 800, 1.4);
+                
+                // Onda 1: oscilação principal correndo para a direita
+                const w1 = Math.sin(x * 0.008 - t * 0.0022) * 5;
+                
+                // Onda 2: oscilação secundária para dar um aspecto mais orgânico de oscilação real
+                const w2 = Math.cos(x * 0.015 + t * 0.001) * 2;
+                
+                // Suaviza a oscilação perto do início (x=0) para a esquerda ficar estável
+                const dampening = Math.min(x / 150, 1);
+                
+                return base - (w1 + w2) * dampening;
+            }
+
+            function update(timestamp) {
+                const t = timestamp;
+                
+                // Gera a lista de pontos do gráfico dinamicamente
+                let dLine = "M 0 " + getY(0, t).toFixed(1);
+                for (let x = 10; x <= 800; x += 10) {
+                    dLine += " L " + x + " " + getY(x, t).toFixed(1);
+                }
+                
+                // Atualiza o contorno e o preenchimento sob a curva
+                strokePath.setAttribute('d', dLine);
+                fillPath.setAttribute('d', dLine + " L 800 100 L 0 100 Z");
+                
+                // Posiciona o ponto luminoso exatamente no fim do gráfico (x = 800)
+                const y_end = getY(800, t);
+                dot.setAttribute('cx', '800');
+                dot.setAttribute('cy', y_end.toFixed(1));
+                
+                // Calcula as flutuações de ROAS e Lucro baseado na altura atual do pico (y_end)
+                // y_end oscila naturalmente entre ~13 e ~27
+                const progress = Math.max(0, Math.min(1, (27 - y_end) / 14));
+                
+                // ROAS flutua entre 8.1x e 8.6x
+                const currentRoas = (8.1 + progress * 0.5).toFixed(1);
+                // Lucro flutua entre +73% e +78%
+                const currentLucro = Math.round(73 + progress * 5);
+                
+                // Atualiza os indicadores na tela
+                roasText.innerHTML = `<i class="fa-solid fa-chart-line"></i> ${currentRoas}x`;
+                lucroText.innerHTML = `<i class="fa-solid fa-wallet"></i> +${currentLucro}%`;
+                
+                requestAnimationFrame(update);
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        // Inicializa a animação
+        animateBannerChart();
+    </script>
+</body>
+
+</html>
