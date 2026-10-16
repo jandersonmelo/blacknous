@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manual Completo e Avançado de Refrigeração Automotiva com ferramentas profissionais para trabalhar, cobrar e organizar seus serviços.">
+    <title>
+      Manual Avançado de Refrigeração Automotiva
+    </title>
+    <link rel="icon" type="image/webp" href="imgs/icon.webp">
+    <link rel="preload" href="fonts/Stolzl-Bold-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Stolzl-Regular-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="imgs/mockup-principal.webp" as="image">
+    <meta property="og:title" content="Manual Avançado de Refrigeração Automotiva">
+    <meta property="og:description" content="Manual Completo e Avançado de Refrigeração Automotiva com ferramentas profissionais para trabalhar, cobrar e organizar seus serviços.">
+    <meta property="og:image" content="https://www.blacknous.com/lp/100dra/imgs/share.webp">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.blacknous.com">
+    
+    <!--UTM E PIXEL CODE-->
+    
+
+    <style>
+    @font-face{font-family:Stolzl;src:url('fonts/Stolzl-Book-400.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:Stolzl;src:url('fonts/Stolzl-Regular-500.woff2') format('woff2');font-weight:500;font-display:swap}
+    @font-face{font-family:Stolzl;src:url('fonts/Stolzl-Bold-700.woff2') format('woff2');font-weight:700;font-display:swap}
+    :root{--navy:#080b1c;--navy-2:#171a3d;--ink:#1d2940;--muted:#4c5d73;--pale:#edf3ff;--line:#c8d9f2;--green:#4caf50;--green-dark:#317b35;--yellow:#fff36d;--orange:#ff9600;--red:#d84343}
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth;max-width:100%;overflow-x:clip} body{font-family:Stolzl,Arial,sans-serif;color:var(--ink);background:#f8fbff;line-height:1.55;max-width:100%;overflow-x:clip} img{display:block;max-width:100%;height:auto} .container{width:min(90%,1200px);margin:auto;padding:72px 0;min-width:0}.dark{background:var(--pale)}.darker{background:#dce8fc}.light{background:#fff}.light-alt{background:#fff9e7}.navy{color:#fff;background:linear-gradient(135deg,var(--navy),#111734 55%,#1b1d42)}
+    h1,h2,h3{line-height:1.18} .section-title{font-size:clamp(2rem,3.5vw,3rem);text-align:center;letter-spacing:-.035em;margin-bottom:22px}.subheadline{font-size:1.15rem;color:var(--muted)}.center{text-align:center}.highlight{color:#1d3557;font-weight:700}.navy .highlight{color:var(--yellow)}.keyword{color:#1d3557;font-weight:700}.navy .keyword{color:var(--yellow)}.keyword-accent{display:inline-block;padding:0 .18em;border-radius:.2em;background:var(--yellow);color:var(--navy);font-weight:700}
+    .topbar{padding:12px 20px;color:#fff;background:#ba3838;text-align:center;font-size:1rem;font-weight:700}.hero-grid{display:grid;grid-template-areas:'head' 'mockup' 'sub';gap:22px;text-align:center}.hero-left{grid-area:head}.hero-right{grid-area:mockup;min-width:0}.hero-sub{grid-area:sub;color:#fff;font-size:clamp(1.15rem,2.2vw,1.35rem);font-weight:500;line-height:1.65}.hero-title{font-size:clamp(1.9rem,4vw,3.35rem);letter-spacing:-.045em;text-transform:uppercase}.hero-right img{width:min(100%,500px);margin:auto}.hero-bottom{padding-top:0;text-align:center}.hero-access{margin-top:14px;color:#fff;font-weight:700}
+    .btn{display:inline-block;width:min(100%,400px);padding:18px 25px;border-radius:16px;background:var(--green);color:#fff;text-align:center;text-decoration:none;font-weight:700;font-size:1.15rem;letter-spacing:.02em;box-shadow:0 6px 0 var(--green-dark);transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(3px);box-shadow:0 3px 0 var(--green-dark)}
+    .carousel{overflow:hidden;cursor:grab;touch-action:pan-y}.carousel:active{cursor:grabbing}.carousel-track{display:flex;gap:20px;width:max-content;padding:30px 20px 45px}.carousel img{width:70vw;max-width:400px;flex:none;border:4px solid #fff;border-radius:22px;box-shadow:0 6px 0 #b6cbe8;user-select:none;-webkit-user-drag:none}
+    .grid-2,.grid-3,.plans{display:grid;grid-template-columns:1fr;gap:28px}.card,.bonus-card,.plan,.faq-item{background:#fff;border:2px solid var(--line);border-radius:20px;box-shadow:0 5px 0 #b6cbe8}.card{padding:30px 24px;text-align:center}.card h3,.bonus-card h3{margin-bottom:10px;color:#1d3557;font-size:1.35rem}.card p,.bonus-card p{color:var(--muted)}.feature-icon{display:grid;place-items:center;width:68px;height:68px;margin:0 auto 18px;border-radius:22px;background:#e8f1ff;font-size:2.1rem;font-style:normal}
+    .video-wrapper{width:min(100%,500px);margin:30px auto}.video-wrapper img{display:block;width:100%;height:auto}
+    .product-grid{display:grid;grid-template-areas:'title' 'image' 'list';gap:24px;align-items:center;min-width:0}.product-title{grid-area:title;min-width:0}.product-image{grid-area:image;min-width:0}.product-list{grid-area:list;min-width:0}.product-image img{width:min(100%,500px);margin:auto}.list{list-style:none;margin-top:18px}.list li{display:flex;gap:10px;margin:14px 0;min-width:0}.list li>*{min-width:0}.list li::before{content:'✓';color:var(--green);font-weight:700}.list strong{display:block;color:#fff}.course-panel{overflow:hidden;border:1px solid rgba(255,255,255,.2);border-radius:18px;background:#151a39;box-shadow:0 8px 0 rgba(0,0,0,.2)}.course-panel-head{display:flex;align-items:center;gap:12px;padding:18px 20px;background:#202752}.course-panel-head i{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:11px;background:var(--green);font-style:normal}.course-panel-head h3{font-size:1.05rem}.course-panel-head p{margin-top:2px;color:#d4ddf8;font-size:.88rem}.course-modules{display:grid;gap:10px;padding:12px}.course-module{display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;padding:14px;border:1px solid #39426e;border-radius:13px;background:#10152f}.module-number{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#2b3568;color:var(--yellow);font-size:.86rem;font-weight:700}.module-content{min-width:0}.module-content h4{font-size:1rem;overflow-wrap:anywhere}.module-content p{margin-top:2px;color:#c5cee9;font-size:.84rem;overflow-wrap:anywhere}.module-time{white-space:nowrap;color:#9eacd8;font-size:.78rem;font-weight:700}.course-more{padding:0 12px 12px;color:#c5cee9;font-size:.84rem;font-weight:700;text-align:center}.bonus-card{padding:20px;display:flex;flex-direction:column;text-align:center}.bonus-card img{width:calc(100% + 40px);max-width:none;margin:0 -20px 16px}.tag{align-self:center;margin-bottom:14px;padding:5px 15px;border-radius:20px;background:var(--orange);color:#fff;font-size:.9rem;font-weight:700;text-transform:uppercase}.bonus-value{width:100%;margin:20px 0 0;overflow:hidden;border:1px solid #d8dfcc;border-radius:14px;background:#fff;box-shadow:0 5px 0 #b9ceb0,0 10px 22px rgba(31,66,35,.1);text-align:center}.promo-kicker{display:block;padding:8px 10px;background:linear-gradient(135deg,#27314f,#18213d);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase}.bonus-price-row{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1.15fr);align-items:stretch;padding:10px}.price-state{display:flex;min-width:0;min-height:76px;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px;border-radius:10px}.price-state.old{background:#fff4f2}.price-state.free{background:linear-gradient(135deg,#ebfae8,#dff5dc)}.price-label{display:block;margin-bottom:4px;color:#667085;font-size:.58rem;font-weight:700;letter-spacing:.04em;line-height:1.25;text-transform:uppercase}.price-state.old del{color:var(--red);font-size:1.08rem;font-weight:700;text-decoration-thickness:2px}.price-state.free strong{color:var(--green-dark);font-size:1.3rem;line-height:1}.price-state.free small{margin-top:4px;color:#3e7941;font-size:.72rem;font-weight:700}.promo-arrow{display:grid;place-items:center;color:var(--orange);font-size:1.35rem;font-weight:700}.bonus-benefit{margin-top:auto;padding-top:18px;color:#399b3d;font-weight:700}
+    .plans{width:100%;max-width:1000px;margin:auto;min-width:0}.plan{width:100%;min-width:0;padding:38px 20px;text-align:center}.plan.complete{border-color:var(--green);box-shadow:0 7px 0 var(--green-dark)}.badge{display:inline-block;max-width:100%;margin-top:-56px;margin-bottom:20px;padding:5px 18px;border-radius:20px;background:var(--orange);color:#fff;font-weight:700;overflow-wrap:anywhere}.plan-title{color:#1d3557;font-size:1.8rem;font-weight:700;overflow-wrap:anywhere}.plan-sub{margin:4px 0 18px;color:#1d3557;font-weight:700;overflow-wrap:anywhere}.plan img{width:auto;max-width:100%;margin:0 auto 16px}.plan .plan-product-image{width:100%;max-width:none;margin:0 auto 16px}.plan img[alt="Pagamento seguro"]{max-width:240px;margin-bottom:0}.plan .list{display:inline-block;max-width:100%;text-align:left;font-size:.96rem}.plan .plan-features{display:block;margin:18px 0;text-align:left}.plan .plan-features li{display:block;margin:10px 0;overflow-wrap:anywhere}.plan .plan-features li::before{content:none}.old-price{color:var(--red);font-weight:700;text-decoration:line-through}.price{margin:8px 0;color:#399b3d;font-size:3rem;font-weight:700;line-height:1}.installments{color:var(--muted);overflow-wrap:anywhere}.mobile-offer{color:var(--red);font-weight:700;animation:pulse 1.5s infinite}.arrow{color:var(--red);font-size:30px;animation:bounce 1s infinite}@keyframes pulse{50%{opacity:.6}}@keyframes bounce{50%{transform:translateY(10px)}}
+    .testimonials .section-title{margin-bottom:0}.testimonial-note{margin:12px auto 0;max-width:620px;color:var(--muted)}.testimonial-carousel{margin-top:18px}.testimonial-carousel .carousel-track{padding-top:18px}.testimonial-carousel img{width:auto!important;height:auto!important;max-width:calc(100vw - 48px);max-height:55vh;border-color:#fff;box-shadow:0 6px 0 #c8b27e}.authority-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}.authority-image img{width:auto;max-width:100%;margin:auto;border:5px solid #fff;border-radius:24px;box-shadow:0 8px 0 #b6cbe8}.authority-copy .section-title{text-align:left}.authority-copy p{font-size:1.06rem;color:var(--muted)}
+    .faq{background:linear-gradient(135deg,var(--navy),#101633 55%,#191a3b);color:#fff}.faq .section-title{color:#fff}.faq-item{margin-bottom:15px;overflow:hidden;border-color:#b8c7e6;background:#292c4a;box-shadow:0 6px 0 #0c0f24}.faq-question{display:flex;justify-content:space-between;gap:20px;padding:20px;cursor:pointer;list-style:none;color:#fff;font-size:1.12rem;font-weight:700}.faq-question::-webkit-details-marker{display:none}.faq-question::after{content:'+';font-size:1.5rem}.faq-item[open] .faq-question::after{content:'−'}.faq-answer{padding:0 20px 20px;background:#f2f5fc;border-top:1px solid #d5deef;color:#27324c}.footer{padding:40px 20px;background:var(--navy);color:#fff;text-align:center}.footer .container{padding:0}.footer p+p{margin-top:20px}.small{font-size:.82rem}
+    @media(min-width:768px){.hero-grid{grid-template-columns:1fr 1fr;grid-template-areas:'head mockup' 'sub mockup';text-align:left;align-items:center}.hero-bottom{text-align:left;padding-left:5%}.product-grid{grid-template-columns:1fr 1fr;grid-template-areas:'title image' 'list image';text-align:left}.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}.plans{grid-template-columns:1fr 1fr;gap:60px}.mobile-offer,.arrow{display:none}.carousel img{width:40vw}.testimonial-carousel img{max-width:calc(100vw - 80px);max-height:560px}.authority-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:60px}.authority-image{order:2}.authority-copy{order:1}}
+    @media(max-width:767px){.hero-section .container{width:96%}.hero-title{width:100%;text-wrap:wrap}.product-title{text-align:center}.course-module{grid-template-columns:36px minmax(0,1fr)}.module-number{width:36px;height:36px}.module-time{grid-column:2;color:#9eacd8}.faq-question{gap:12px;padding:18px;overflow-wrap:anywhere}}
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="topbar">
+        OFERTA ESPECIAL DISPONÍVEL ATÉ HOJE
+        <span id="data-oferta">
+        </span>
+      </div>
+      <section class="navy hero-section">
+        <div class="container hero-grid">
+          <div class="hero-left">
+            <h1 class="hero-title">
+              <span class="keyword">PARABÉNS! Sua compra foi aprovada, temos algo muito especial para você.</span> Manual completo e Avançado de Refrigeração Automotiva
+            </h1>
+          </div>
+          <div class="hero-right">
+            <img src="imgs/mockup-principal.webp" alt="Manual Avançado de Refrigeração Automotiva" fetchpriority="high">
+          </div>
+          <div class="hero-sub subheadline">
+            Você já tem os mapas para saber o que testar. Agora tenha uma referência técnica completa para entender por que testar, como interpretar o sistema e como trabalhar de forma mais profissional — dos fundamentos até híbridos, elétricos, scanner, falhas intermitentes e raciocínio de especialista. E ainda receba materiais para melhorar suas vendas, profissionalizar seus orçamentos, organizar suas finanças e estruturar sua atividade.
+          </div>
+        </div>
+        <div class="container hero-bottom">
+          <a class="btn" href="#planos">
+            QUERO AGORA!
+          </a>
+          <p class="hero-access">
+            ⚡ Acesso imediato
+          </p>
+        </div>
+      </section>
+      <section class="light center">
+        <div class="container" style="padding-bottom:15px">
+          <h2 class="section-title">
+            Um manual Completo e Avançado com 857 páginas, para se tornar o melhor no que faz
+          </h2>
+        </div>
+        <div class="carousel" id="carousel">
+          <div class="carousel-track" id="carousel-track">
+            <img src="imgs/carrossel-1.webp" alt="Página interna do Manual Avançado de Refrigeração Automotiva" loading="lazy">
+            <img src="imgs/carrossel-2.webp" alt="Página interna do Manual Avançado de Refrigeração Automotiva" loading="lazy">
+            <img src="imgs/carrossel-3.webp" alt="Página interna do Manual Avançado de Refrigeração Automotiva" loading="lazy">
+            <img src="imgs/carrossel-4.webp" alt="Página interna do Manual Avançado de Refrigeração Automotiva" loading="lazy">
+            <img src="imgs/carrossel-5.webp" alt="Página interna do Manual Avançado de Refrigeração Automotiva" loading="lazy">
+            <img src="imgs/carrossel-6.webp" alt="Página interna do Manual Avançado de Refrigeração Automotiva" loading="lazy">
+            <img src="imgs/carrossel-7.webp" alt="Página interna do Manual Avançado de Refrigeração Automotiva" loading="lazy">
+          </div>
+        </div>
+        <div class="container" style="padding-top:0">
+          <p class="subheadline">
+            O Manual Avançado de Refrigeração Automotiva possui 857 páginas organizadas em 24 grandes capítulos técnicos, construídos para acompanhar o profissional desde os fundamentos até situações muito mais avançadas de diagnóstico.
+          </p>
+        </div>
+      </section>
+      <section class="dark">
+        <div class="container">
+          <h2 class="section-title">
+            O que muda na prática quando você aplica o Manual Completo e Avançado da Refrigeração Automotiva
+          </h2>
+          <p class="subheadline center" style="margin-bottom:45px">
+            Esse é o próximo grande passo na sua profissão
+          </p>
+          <div class="grid-2">
+            <article class="card">
+              <i class="feature-icon">
+                🔍
+              </i>
+              <h3>
+                <span class="keyword">
+                  Tenha uma referência técnica completa para consultar
+                </span>
+              </h3>
+              <p>
+                Em vez de pesquisar cada assunto separadamente, você terá 857 páginas organizadas em 24 capítulos, cobrindo desde os fundamentos da refrigeração automotiva até diagnósticos e tecnologias mais avançadas.
+              </p>
+            </article>
+            <article class="card">
+              <i class="feature-icon">
+                🧰
+              </i>
+              <h3>
+                Trabalhe com mais confiança diante de situações que hoje geram insegurança
+              </h3>
+              <p>
+                Quanto mais você entende o funcionamento do sistema, mais segurança ganha para analisar sintomas, conversar com o cliente e decidir quais verificações realmente fazem sentido.
+              </p>
+            </article>
+            <article class="card">
+              <i class="feature-icon">
+                📋
+              </i>
+              <h3>
+                Conhecimento técnico + estrutura profissional em uma única oferta
+              </h3>
+              <p>
+                Além do manual, você recebe materiais voltados a vendas, formalização, consultoria empresarial, orçamento e contratos e controle financeiro. Não é apenas estudar mais. É também organizar melhor a forma como você trabalha.
+              </p>
+            </article>
+            <article class="card">
+              <i class="feature-icon">
+                🧭
+              </i>
+              <h3>
+                “Mas eu ainda não sou um técnico avançado.”
+              </h3>
+              <p>
+                Você não precisa começar dominando tudo. O manual foi estruturado justamente para permitir uma evolução progressiva, começando por segurança, fundamentos e termodinâmica e avançando até eletrônica, híbridos, elétricos, falhas intermitentes e raciocínio de especialista.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="light-alt center">
+        <div class="container">
+          <h2 class="section-title highlight">
+            Você Já Deu o Primeiro Passo com os 100 Mapas. Agora Pode Ter a Estrutura Completa Para Ir Muito Além do Diagnóstico Básico.
+          </h2>
+          <div class="video-wrapper">
+            <img src="imgs/mockup-principal.webp" alt="Manual Avançado de Refrigeração Automotiva" loading="lazy">
+          </div>
+          <p class="subheadline" style="margin-bottom:30px">
+            O Manual Avançado ajuda você a compreender com mais profundidade o sistema, as causas, os procedimentos e o raciocínio por trás do diagnóstico.
+          </p>
+          <a class="btn" href="#planos">
+            QUERO EVOLUIR AGORA
+          </a>
+        </div>
+      </section>
+      <section class="dark">
+        <div class="container">
+          <h2 class="section-title">
+            IDEAL PARA VOCÊ QUE DESEJA:
+          </h2>
+          <div class="grid-2">
+            <article class="card">
+              <i class="feature-icon">
+                ✅
+              </i>
+              <h3>
+                Aprofundar Seu Conhecimento Técnico
+              </h3>
+              <p>
+                Sair da consulta rápida e compreender com muito mais profundidade como os sistemas funcionam, como interpretar seus comportamentos e como investigar falhas mais complexas.
+              </p>
+            </article>
+            <article class="card">
+              <i class="feature-icon">
+                ✅
+              </i>
+              <h3>
+                Aceitar Serviços com Mais Segurança
+              </h3>
+              <p>
+                Ampliar seu repertório técnico para lidar melhor com eletrônica, sensores, módulos, scanner, compressores variáveis, híbridos, elétricos e falhas intermitentes.
+              </p>
+            </article>
+            <article class="card">
+              <i class="feature-icon">
+                ✅
+              </i>
+              <h3>
+                Profissionalizar Seu Atendimento
+              </h3>
+              <p>
+                Utilizar modelos de orçamento e contratos para apresentar seus serviços de maneira mais organizada, documentada e profissional diante do cliente.
+              </p>
+            </article>
+            <article class="card">
+              <i class="feature-icon">
+                ✅
+              </i>
+              <h3>
+                Organizar Melhor Seu Negócio e Faturamento
+              </h3>
+              <p>
+                Ter ferramentas para melhorar vendas, controlar receitas e despesas, acompanhar resultados e receber orientação profissional para estruturar melhor sua atividade.
+              </p>
+            </article>
+          </div>
+          <p class="center" style="margin-top:32px">
+            <a class="btn" href="#planos">
+              NÃO PERDER MAIS TEMPO
+            </a>
+          </p>
+        </div>
+      </section>
+      <section class="navy">
+        <div class="container product-grid">
+          <div class="product-title">
+            <h2 class="section-title">
+              Tudo o que você vai receber no Manual Completo e Avançado da Refrigeração Automotiva
+            </h2>
+            <h3 class="highlight">
+              Manual Avançado de Refrigeração Automotiva
+            </h3>
+          </div>
+          <div class="product-image">
+            <img src="imgs/mockup-principal.webp" alt="Manual Avançado de Refrigeração Automotiva" loading="lazy">
+          </div>
+          <div class="product-list">
+            <div class="course-panel">
+              <div class="course-panel-head">
+                <i>
+                  ▶
+                </i>
+                <div>
+                  <h3>
+                    O que compõe o Produto Principal
+                  </h3>
+                  <p>
+                    857 páginas organizadas em 24 grandes capítulos técnicos.
+                  </p>
+                </div>
+              </div>
+              <div class="course-modules">
+                <article class="course-module">
+                  <span class="module-number">
+                    01
+                  </span>
+                  <div class="module-content">
+                    <h4>
+                      Segurança, ambiente e método profissional
+                    </h4>
+                  </div>
+                </article>
+                <article class="course-module">
+                  <span class="module-number">
+                    02
+                  </span>
+                  <div class="module-content">
+                    <h4>
+                      Termodinâmica aplicada ao diagnóstico
+                    </h4>
+                  </div>
+                </article>
+                <article class="course-module">
+                  <span class="module-number">
+                    03
+                  </span>
+                  <div class="module-content">
+                    <h4>
+                      Refrigerantes e evolução tecnológica
+                    </h4>
+                  </div>
+                </article>
+                <article class="course-module">
+                  <span class="module-number">
+                    04
+                  </span>
+                  <div class="module-content">
+                    <h4>
+                      Óleos, umidade e contaminação
+                    </h4>
+                  </div>
+                </article>
+                <article class="course-module">
+                  <span class="module-number">
+                    05
+                  </span>
+                  <div class="module-content">
+                    <h4>
+                      Leitura completa do ciclo frigorífico
+                    </h4>
+                  </div>
+                </article>
+                <article class="course-module">
+                  <span class="module-number">
+                    06
+                  </span>
+                  <div class="module-content">
+                    <h4>
+                      Compressores de deslocamento fixo
+                    </h4>
+                  </div>
+                </article>
+                <article class="course-module">
+                  <span class="module-number">
+                    07
+                  </span>
+                  <div class="module-content">
+                    <h4>
+                      Compressores variáveis e elétricos
+                    </h4>
+                  </div>
+                </article>
+                <article class="course-module">
+                  <span class="module-number">
+                    08
+                  </span>
+                  <div class="module-content">
+                    <h4>
+                      Condensador, ventilação e lado de alta
+                    </h4>
+                  </div>
+                </article>
+                <article class="course-module">
+                  <span class="module-number">
+                    09
+                  </span>
+                  <div class="module-content">
+                    <h4>
+                      Expansão, evaporador e controle de umidade
+                    </h4>
+                  </div>
+                </article>
+                <article class="course-module">
+                  <span class="module-number">
+                    10
+                  </span>
+                  <div class="module-content">
+                    <h4>
+                      HVAC: soprador, filtros, portas e conforto
+                    </h4>
+                  </div>
+                </article>
+                <article class="course-module"><span class="module-number">11</span><div class="module-content"><h4>Eletricidade aplicada ao A/C</h4></div></article>
+                <article class="course-module"><span class="module-number">12</span><div class="module-content"><h4>Sensores, módulos, scanner e redes</h4></div></article>
+                <article class="course-module"><span class="module-number">13</span><div class="module-content"><h4>Ferramentas e metrologia</h4></div></article>
+                <article class="course-module"><span class="module-number">14</span><div class="module-content"><h4>Recuperação, vácuo e recarga</h4></div></article>
+                <article class="course-module"><span class="module-number">15</span><div class="module-content"><h4>Detecção de vazamentos</h4></div></article>
+                <article class="course-module"><span class="module-number">16</span><div class="module-content"><h4>Diagnóstico por pressão e temperatura</h4></div></article>
+                <article class="course-module"><span class="module-number">17</span><div class="module-content"><h4>Diagnóstico por reclamação do cliente</h4></div></article>
+                <article class="course-module"><span class="module-number">18</span><div class="module-content"><h4>Manutenção preventiva e qualidade do ar</h4></div></article>
+                <article class="course-module"><span class="module-number">19</span><div class="module-content"><h4>Substituição de compressor e controle de contaminação</h4></div></article>
+                <article class="course-module"><span class="module-number">20</span><div class="module-content"><h4>Híbridos, elétricos e bombas de calor</h4></div></article>
+                <article class="course-module"><span class="module-number">21</span><div class="module-content"><h4>Marcas, famílias e identificação técnica</h4></div></article>
+                <article class="course-module"><span class="module-number">22</span><div class="module-content"><h4>Qualidade de oficina e documentação</h4></div></article>
+                <article class="course-module"><span class="module-number">23</span><div class="module-content"><h4>Casos avançados e falhas intermitentes</h4></div></article>
+                <article class="course-module"><span class="module-number">24</span><div class="module-content"><h4>Domínio técnico e raciocínio de especialista</h4></div></article>
+              </div>
+              <p class="course-more">
+                E muito mais…
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="darker">
+        <div class="container">
+          <h2 class="section-title">
+            E além do Manual Completo e Avançado da Refrigeração Automotiva, você ainda recebe estes
+            <span class="highlight">
+              bônus estratégicos
+            </span>
+            :
+          </h2>
+          <div class="grid-3">
+            <article class="bonus-card">
+              <span class="tag">
+                Bônus 1
+              </span>
+            <img src="imgs/bonus-1.webp" alt="10 Técnicas de Vendas para Refrigeração Automotiva" loading="lazy">
+              <h3>
+                10 Técnicas de Vendas para Refrigeração Automotiva para dobrar o faturamento em 6 meses
+              </h3>
+              <p>
+                10 técnicas práticas que outros empresários do ramo usaram para melhorar a forma como você apresenta seus serviços, conduz orçamentos e cria novas oportunidades de faturamento dentro da refrigeração automotiva e dobrar o faturamento em 6 meses.
+              </p>
+              <span class="bonus-benefit">
+                Bônus incluído no Plano Completo.
+              </span>
+              <div class="bonus-value">
+                <span class="promo-kicker">
+                  Oferta exclusiva do Plano Completo
+                </span>
+                <div class="bonus-price-row">
+                  <span class="price-state old">
+                    <span class="price-label">
+                      Valor individual
+                    </span>
+                    <del>
+                      R$ 47,90
+                    </del>
+                  </span>
+                  <span class="promo-arrow">
+                    →
+                  </span>
+                  <span class="price-state free">
+                    <span class="price-label">
+                      No Plano Completo
+                    </span>
+                    <strong>
+                      GRÁTIS
+                    </strong>
+                    <small>
+                      R$ 00,00
+                    </small>
+                  </span>
+                </div>
+              </div>
+            </article>
+            <article class="bonus-card">
+              <span class="tag">
+                Bônus 2
+              </span>
+            <img src="imgs/bonus-2.webp" alt="Abertura Gratuita de CNPJ MEI com Contador" loading="lazy">
+              <h3>
+                Abertura Gratuita de CNPJ MEI com Contador
+              </h3>
+              <p>
+                Após a finalização da compra em até 48 horas, entraremos em contato para formalizar a abertura de seu CNPJ MEI, todo o processo de abertura será feito por um contador especialista em MEI, você receberá todo a documentação e orientações necessárias para seguir com sua MEI.
+              </p>
+              <span class="bonus-benefit">
+                Bônus incluído no Plano Completo.
+              </span>
+              <div class="bonus-value">
+                <span class="promo-kicker">
+                  Oferta exclusiva do Plano Completo
+                </span>
+                <div class="bonus-price-row">
+                  <span class="price-state old">
+                    <span class="price-label">
+                      Valor individual
+                    </span>
+                    <del>
+                      R$ 497,00
+                    </del>
+                  </span>
+                  <span class="promo-arrow">
+                    →
+                  </span>
+                  <span class="price-state free">
+                    <span class="price-label">
+                      No Plano Completo
+                    </span>
+                    <strong>
+                      GRÁTIS
+                    </strong>
+                    <small>
+                      R$ 00,00
+                    </small>
+                  </span>
+                </div>
+              </div>
+            </article>
+            <article class="bonus-card">
+              <span class="tag">
+                Bônus 3
+              </span>
+            <img src="imgs/bonus-3.webp" alt="1 Hora de Consultoria Empresarial e Financeira com Contador" loading="lazy">
+              <h3>
+                1 Hora de Consultoria Empresarial e Financeira com Contador
+              </h3>
+              <p>
+                Você receberá também uma sessão individual de até 1 hora para conversar sobre organização financeira, estrutura empresarial, receitas, despesas, controles e dúvidas relacionadas à profissionalização da sua atividade diretamente com um contador especialista.
+              </p>
+              <span class="bonus-benefit">
+                Bônus incluído no Plano Completo.
+              </span>
+              <div class="bonus-value">
+                <span class="promo-kicker">
+                  Oferta exclusiva do Plano Completo
+                </span>
+                <div class="bonus-price-row">
+                  <span class="price-state old">
+                    <span class="price-label">
+                      Valor individual
+                    </span>
+                    <del>
+                      R$ 497,00
+                    </del>
+                  </span>
+                  <span class="promo-arrow">
+                    →
+                  </span>
+                  <span class="price-state free">
+                    <span class="price-label">
+                      No Plano Completo
+                    </span>
+                    <strong>
+                      GRÁTIS
+                    </strong>
+                    <small>
+                      R$ 00,00
+                    </small>
+                  </span>
+                </div>
+              </div>
+            </article>
+            <article class="bonus-card">
+              <span class="tag">
+                Bônus 4
+              </span>
+            <img src="imgs/bonus-4.webp" alt="10 Modelos Profissionais de Orçamento e Contrato" loading="lazy">
+              <h3>
+                10 Modelos Profissionais de Orçamentos para Regrigeração Automotiva
+              </h3>
+              <p>
+                10 modelos profissionais de orçamentos para Refrigeração Automotiva, prontos e editáveis na versão WORD e PDF, com orientações de edição. Para deixar sua operação mais profissional e eliminar riscos com o cliente.
+              </p>
+              <span class="bonus-benefit">
+                Bônus incluído no Plano Completo.
+              </span>
+              <div class="bonus-value">
+                <span class="promo-kicker">
+                  Oferta exclusiva do Plano Completo
+                </span>
+                <div class="bonus-price-row">
+                  <span class="price-state old">
+                    <span class="price-label">
+                      Valor individual
+                    </span>
+                    <del>
+                      R$ 97,00
+                    </del>
+                  </span>
+                  <span class="promo-arrow">
+                    →
+                  </span>
+                  <span class="price-state free">
+                    <span class="price-label">
+                      No Plano Completo
+                    </span>
+                    <strong>
+                      GRÁTIS
+                    </strong>
+                    <small>
+                      R$ 00,00
+                    </small>
+                  </span>
+                </div>
+              </div>
+            </article>
+            <article class="bonus-card">
+              <span class="tag">
+                Bônus 5
+              </span>
+            <img src="imgs/bonus-5.webp" alt="10 Modelos Profissionais de Orçamento e Contrato" loading="lazy">
+              <h3>
+                10 Modelos Profissionais de Contratos para Refrigeração Automotiva
+              </h3>
+              <p>
+                10 Modelos de contratos para Refrigeração Automotiva, para você eliminar riscos jurídicos e deixar sua operação profissional, é só editar e preencher, já vem na versão PDF e WORD. Tudo pronto para você não perder mais tempo.
+              </p>
+              <span class="bonus-benefit">
+                Bônus incluído no Plano Completo.
+              </span>
+              <div class="bonus-value">
+                <span class="promo-kicker">
+                  Oferta exclusiva do Plano Completo
+                </span>
+                <div class="bonus-price-row">
+                  <span class="price-state old">
+                    <span class="price-label">
+                      Valor individual
+                    </span>
+                    <del>
+                      R$ 97,00
+                    </del>
+                  </span>
+                  <span class="promo-arrow">
+                    →
+                  </span>
+                  <span class="price-state free">
+                    <span class="price-label">
+                      No Plano Completo
+                    </span>
+                    <strong>
+                      GRÁTIS
+                    </strong>
+                    <small>
+                      R$ 00,00
+                    </small>
+                  </span>
+                </div>
+              </div>
+            </article>
+            <article class="bonus-card">
+              <span class="tag">
+                Bônus 6
+              </span>
+            <img src="imgs/bonus-6.webp" alt="Planilha Profissional de Controle Financeiro" loading="lazy">
+              <h3>
+                Planilha Profissional de Controle Financeiro
+              </h3>
+              <p>
+                Registre receitas, despesas, peças, custos, serviços realizados, faturamento e resultado mensal. Tenha mais clareza sobre quanto entrou, quanto foi gasto e quanto realmente sobrou.
+              </p>
+              <span class="bonus-benefit">
+                Bônus incluído no Plano Completo.
+              </span>
+              <div class="bonus-value">
+                <span class="promo-kicker">
+                  Oferta exclusiva do Plano Completo
+                </span>
+                <div class="bonus-price-row">
+                  <span class="price-state old">
+                    <span class="price-label">
+                      Valor individual
+                    </span>
+                    <del>
+                      R$ 27,90
+                    </del>
+                  </span>
+                  <span class="promo-arrow">
+                    →
+                  </span>
+                  <span class="price-state free">
+                    <span class="price-label">
+                      No Plano Completo
+                    </span>
+                    <strong>
+                      GRÁTIS
+                    </strong>
+                    <small>
+                      R$ 00,00
+                    </small>
+                  </span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="planos" class="light center">
+        <div class="container">
+          <h2 class="section-title">
+            Escolha a melhor opção para você:
+          </h2>
+          <p class="subheadline" style="margin-bottom:55px">
+            Ambas vêm com garantia de 7 dias
+          </p>
+          <div class="plans">
+            <article class="plan">
+              <h3 class="plan-title">
+                PLANO BÁSICO
+              </h3>
+              <img class="plan-product-image" src="imgs/plano-basico.webp" alt="Plano Básico do Manual Avançado de Refrigeração Automotiva" loading="lazy">
+              <strong>
+                Manual Completo e Avançado de Refrigeração Automotiva
+              </strong>
+              <ul class="list plan-features">
+                <li>
+                  ✅ 10 Técnicas de Vendas para Refrigeração Automotiva
+                </li>
+                <li>
+                  ✅ Abertura Gratuita de CNPJ MEI com Contador
+                </li>
+                <li>
+                  ❌ <del style="color:var(--red)">1 Hora de Consultoria Empresarial e Financeira com Contador</del>
+                </li>
+                <li>
+                  ✅ 10 Modelos Profissionais de Orçamentos
+                </li>
+                <li>
+                  ✅ 10 Modelos Profissionais de Contratos
+                </li>
+                <li>
+                  ✅ Planilha Profissional de Controle Financeiro
+                </li>
+                <li>
+                  🖨️ Pronto para Imprimir
+                </li>
+                <li>
+                  🧠 Revisão Visual Estratégica
+                </li>
+                <li>
+                  ⚡ Acesso Imediato
+                </li>
+                <li>
+                  📝 Formato PDF
+                </li>
+                <li>
+                  💎 Acesso Vitalício
+                </li>
+                <li>
+                  🛡️ Garantia de 7 dias
+                </li>
+              </ul>
+              <p class="old-price">
+                De R$ 970,00 por:
+              </p>
+              <p class="price">
+                R$ 97,00
+              </p>
+              <p class="installments">
+                ou 12x de R$ 10,03 no cartão
+              </p>
+              <p style="margin:28px 0">
+                <a class="btn" href="https://pay.kiwify.com.br/Si2YADb">
+                  QUERO O BÁSICO
+                </a>
+              </p>
+              <img src="imgs/pagamento-seguro.webp" alt="Pagamento seguro" loading="lazy">
+            </article>
+            <div class="mobile-offer">
+              Atenção: Temos uma oferta ainda mais completa para você! Veja logo abaixo.
+              <div class="arrow">
+                ▼
+              </div>
+            </div>
+            <article class="plan complete">
+              <span class="badge">
+                MAIS VENDIDO 🔥
+              </span>
+              <h3 class="plan-title">
+                PLANO COMPLETO
+              </h3>
+              <p class="plan-sub">
+                ✨ TODOS OS BÔNUS INCLUSOS
+              </p>
+              <img class="plan-product-image" src="imgs/mockup-principal.webp" alt="Plano Completo do Manual Avançado de Refrigeração Automotiva" loading="lazy">
+              <p class="plan-sub">
+                Todos os Materiais (Recebimento Imediato)
+              </p>
+              <strong>
+                Manual Completo e Avançado de Refrigeração Automotiva
+              </strong>
+              <ul class="list plan-features">
+                <li>
+                  ✅ 10 Técnicas de Vendas para Refrigeração Automotiva
+                </li>
+                <li>
+                  ✅ Abertura Gratuita de CNPJ MEI com Contador
+                </li>
+                <li>
+                  ✅ 1 Hora de Consultoria Empresarial e Financeira com Contador
+                </li>
+                <li>
+                  ✅ 10 Modelos Profissionais de Orçamentos
+                </li>
+                <li>
+                  ✅ 10 Modelos Profissionais de Contratos
+                </li>
+                <li>
+                  ✅ Planilha Profissional de Controle Financeiro
+                </li>
+                <li>
+                  🖨️ Pronto para Imprimir
+                </li>
+                <li>
+                  🧠 Revisão Visual Estratégica
+                </li>
+                <li>
+                  ⚡ Acesso Imediato
+                </li>
+                <li>
+                  📝 Formato PDF
+                </li>
+                <li>
+                  💎 Acesso Vitalício
+                </li>
+                <li>
+                  🛡️ Garantia de 7 dias
+                </li>
+              </ul>
+              <p class="old-price">
+                De R$ 1.970,00 por:
+              </p>
+              <p class="price">
+                R$ 197,00
+              </p>
+              <p class="installments">
+                ou 12x de R$ 20,37 no cartão
+              </p>
+              <p style="margin:28px 0">
+                <a class="btn" href="https://pay.kiwify.com.br/eQbmDBu">
+                  QUERO O COMPLETO
+                </a>
+              </p>
+              <img src="imgs/pagamento-seguro.webp" alt="Pagamento seguro" loading="lazy">
+            </article>
+          </div>
+          <p class="highlight" style="margin-top:48px">
+            APROVEITE AGORA: Você não vai encontrar esse preço depois!
+          </p>
+        </div>
+      </section>
+      <!--<section class="light testimonials center"><div class="container" style="padding-bottom:22px"><h2 class="section-title">Veja quem já está explorando os sabores da Amazônia</h2><p class="testimonial-note">Experiências de quem já está aproveitando o Chef Amazônico.</p></div><div class="carousel testimonial-carousel" id="testimonials-carousel"><div class="carousel-track" id="testimonials-track"><img src="imgs/depoimento-1.webp" alt="Depoimento sobre o Chef Amazônico" loading="lazy"><img src="imgs/depoimento-2.webp" alt="Depoimento sobre o Chef Amazônico" loading="lazy"><img src="imgs/depoimento-3.webp" alt="Depoimento sobre o Chef Amazônico" loading="lazy"><img src="imgs/depoimento-4.webp" alt="Depoimento sobre o Chef Amazônico" loading="lazy"><img src="imgs/depoimento-5.webp" alt="Depoimento sobre o Chef Amazônico" loading="lazy"><img src="imgs/depoimento-6.webp" alt="Depoimento sobre o Chef Amazônico" loading="lazy"><img src="imgs/depoimento-7.webp" alt="Depoimento sobre o Chef Amazônico" loading="lazy"><img src="imgs/depoimento-8.webp" alt="Depoimento sobre o Chef Amazônico" loading="lazy"></div></div><div class="container" style="padding-top:0"><a class="btn" href="#planos">QUERO MINHAS RECEITAS 🔥</a></div></section>
+    <section class="dark"><div class="container authority-grid"><div class="authority-image"><img src="imgs/autor.webp" alt="Chef Amazônico" loading="lazy"></div><div class="authority-copy"><h2 class="section-title">Conheça o Chef Amazônico</h2><p>O Chef Amazônico — 180 Receitas Paraenses é um Livro Digital Premium criado para colocar um amplo repertório da gastronomia paraense ao alcance das suas mãos. Com receitas testadas e aprovadas, imagens dos pratos, fichas técnicas e orientações de preparo, você terá mais segurança para transformar ingredientes amazônicos em pratos que parecem ter saído de um restaurante.</p></div></div></section>-->
+      <section class="faq">
+        <div class="container" style="max-width:800px">
+          <h2 class="section-title">
+            PERGUNTAS FREQUENTES
+          </h2>
+          <details class="faq-item" open>
+            <summary class="faq-question">
+              O que vou receber ao adquirir o Manual Avançado?
+            </summary>
+            <p class="faq-answer">
+              Você receberá o Manual Avançado de Refrigeração Automotiva com 857 páginas mais os cinco bônus apresentados nesta página: material de vendas, abertura de CNPJ MEI com contador quando aplicável, consultoria empresarial e financeira, modelos de orçamento e contrato e planilha financeira.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Sou iniciante. O manual serve para mim?
+            </summary>
+            <p class="faq-answer">
+              Sim. Apesar de ser um material avançado e bastante completo, a estrutura começa por assuntos fundamentais, como segurança, ambiente, termodinâmica e ciclo frigorífico, antes de avançar para temas mais complexos.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Qual é a diferença entre os 100 Mapas e o Manual Avançado?
+            </summary>
+            <p class="faq-answer">
+              Os 100 Mapas de Diagnóstico foram pensados para consulta rápida: Sintoma → Teste → Causa → Correção. O Manual Avançado aprofunda o conhecimento e aborda de maneira muito mais ampla o funcionamento, diagnóstico, procedimentos e tecnologias da refrigeração automotiva. Os dois produtos são complementares.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Preciso ler o manual inteiro para aproveitar o conteúdo?
+            </summary>
+            <p class="faq-answer">
+              Não. Você pode utilizar o manual tanto para estudo progressivo quanto como material de consulta, acessando o capítulo relacionado ao assunto que precisa aprofundar.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              O manual aborda veículos híbridos, elétricos e bombas de calor?
+            </summary>
+            <p class="faq-answer">
+              Sim. Existe um capítulo específico sobre híbridos, elétricos e bombas de calor.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              O conteúdo inclui eletricidade, sensores, módulos e scanner?
+            </summary>
+            <p class="faq-answer">
+              Sim. O conteúdo inclui capítulos sobre eletricidade aplicada ao A/C, sensores, módulos, scanner, redes e diagnóstico de falhas mais avançadas.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Como funciona o bônus de abertura de CNPJ MEI?
+            </summary>
+            <p class="faq-answer">
+              O bônus oferece suporte profissional de contador para a abertura do CNPJ MEI, quando a atividade exercida e a situação do comprador permitirem o enquadramento aplicável. Eventuais taxas públicas, exigências específicas ou situações que não possam ser enquadradas como MEI devem seguir as regras aplicáveis ao caso.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Como funciona a consultoria empresarial e financeira?
+            </summary>
+            <p class="faq-answer">
+              Você terá direito a uma sessão individual de até 1 hora, seguindo as orientações de agendamento e disponibilidade informadas após a compra. A conversa pode envolver organização financeira, estrutura empresarial e dúvidas relacionadas à atividade.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Os modelos de orçamento e contrato já vêm prontos para usar?
+            </summary>
+            <p class="faq-answer">
+              Os materiais serão entregues para que você possa adaptar os campos necessários à sua atividade e ao atendimento do cliente.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              A planilha financeira é difícil de usar?
+            </summary>
+            <p class="faq-answer">
+              Não. Ela foi pensada para registrar informações práticas do dia a dia, como entradas, despesas, peças, serviços e resultados.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              O acesso aos materiais expira?
+            </summary>
+            <p class="faq-answer">
+              Não. Os materiais digitais possuem acesso vitalício, conforme as condições da oferta.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Quando receberei os materiais e os serviços profissionais?
+            </summary>
+            <p class="faq-answer">
+              O acesso aos materiais digitais é liberado após a confirmação do pagamento. Os serviços profissionais incluídos, como consultoria e abertura de CNPJ, seguem as instruções de solicitação e agendamento apresentadas após a compra.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Existe garantia?
+            </summary>
+            <p class="faq-answer">
+              Sim. Você terá 7 dias de garantia, conforme as condições aplicáveis à compra.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <p>
+          ©
+          <span id="ano">
+          </span>
+          Blacknous Finanças e Digital LTDA | Todos os direitos reservados.
+        </p>
+        <p class="small">
+          Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site. A compra desse material não garante nenhum tipo de resultado. Fazemos todos os esforços para indicar claramente e mostrar todas as provas do produto e usamos resultados reais de alunos.
+        </p>
+        <p class="small">
+          Todos os direitos sobre a obra “Manual Avançado de Refrigeração Automotiva” são reservados ao produtor, nos termos da Lei nº 9.610/98 (Lei de Direitos Autorais). A reprodução não autorizada desta publicação, no todo ou em parte, por quaisquer meios, constitui violação dos direitos autorais (Art. 184 do Código Penal e Lei 9.610/98), sujeitando os infratores às sanções civis e criminais previstas na legislação aplicável. Em caso de dúvidas, suporte ou problemas de acesso, entre em contato pelo nosso e-mail de atendimento: suporte@blacknous.com Horário de atendimento: segunda a sexta, das 8h às 16h.
+        </p>
+      </div>
+    </footer>
+    <script>
+      const now=new Date();document.getElementById('ano').textContent=now.getFullYear();document.getElementById('data-oferta').textContent=now.toLocaleDateString('pt-BR');
+      (()=>{const initCarousel=(box,track)=>{const slides=[...track.children];for(let i=0;i<2;i++)slides.forEach(s=>track.appendChild(s.cloneNode(true)));let drag=false,start=0,origin=0,pause=0,ready=false;const width=()=>track.scrollWidth/3;const reset=()=>{const w=width();if(box.scrollLeft>=w*2)box.scrollLeft-=w;if(box.scrollLeft<w*.05)box.scrollLeft+=w};const init=()=>{if(!ready&&width()){box.scrollLeft=width();ready=true}};box.addEventListener('pointerdown',e=>{drag=true;start=e.clientX;origin=box.scrollLeft;box.setPointerCapture(e.pointerId);pause=Date.now()+2500});box.addEventListener('pointermove',e=>{if(drag){box.scrollLeft=origin-(e.clientX-start)*1.4;reset()}});box.addEventListener('pointerup',()=>{drag=false;pause=Date.now()+2500});box.addEventListener('pointercancel',()=>drag=false);box.addEventListener('wheel',()=>pause=Date.now()+2500,{passive:true});window.addEventListener('load',init,{once:true});const move=()=>{init();if(ready&&!drag&&Date.now()>pause)box.scrollLeft+=.55;if(ready)reset();requestAnimationFrame(move)};move()};initCarousel(document.getElementById('carousel'),document.getElementById('carousel-track'));initCarousel(document.getElementById('testimonials-carousel'),document.getElementById('testimonials-track'))})();
+    </script>
+  </body>
+</html>
