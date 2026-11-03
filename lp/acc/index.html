@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contabilidade simples e 100% presente para ME e EPP.">
+  <title>Blacknous Finanças e Digital</title>
+  <link rel="canonical" href="http://www.blacknous.com/lp/acc/">
+  <link rel="icon" type="image/webp" href="http://www.blacknous.com/lp/acc/imgs/icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="http://www.blacknous.com/lp/acc/">
+  <meta property="og:title" content="Blacknous Finan&ccedil;as e Digital">
+  <meta property="og:description" content="Contabilidade simples e pr&oacute;xima para ME e EPP.">
+  <meta property="og:image" content="http://www.blacknous.com/lp/acc/imgs/share.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blacknous Finan&ccedil;as e Digital">
+  <meta name="twitter:description" content="Contabilidade simples e pr&oacute;xima para ME e EPP.">
+  <meta name="twitter:image" content="http://www.blacknous.com/lp/acc/imgs/share.webp">
+  <style>
+    @font-face {
+      font-family: "Stolzl";
+      src: url("fonts/Stolzl-Book-400.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Stolzl";
+      src: url("fonts/Stolzl-Regular-500.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Stolzl";
+      src: url("fonts/Stolzl-Medium-600.woff2") format("woff2");
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Stolzl";
+      src: url("fonts/Stolzl-Bold-700.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --ink: #0f172a;
+      --muted: #526174;
+      --line: #e3e8ee;
+      --soft: #f6f8fa;
+      --green: #10b981;
+      --green-dark: #059669;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--ink);
+      font-family: "Stolzl", Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 76vh;
+      display: grid;
+      place-items: center;
+      padding: 92px 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #effaf6 100%);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(360px, 1.08fr);
+      grid-template-areas:
+        "title visual"
+        "copy visual"
+        "actions visual";
+      gap: 0 52px;
+      max-width: 1160px;
+      align-items: center;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      grid-area: title;
+      margin: 0;
+      font-size: clamp(40px, 4.8vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+    }
+
+    h1 strong { color: var(--green-dark); font-weight: inherit; }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      grid-area: visual;
+      align-self: stretch;
+      align-items: end;
+      justify-content: center;
+      min-height: 500px;
+      isolation: isolate;
+    }
+
+    .hero-visual::before {
+      position: absolute;
+      z-index: -1;
+      bottom: 6%;
+      width: 86%;
+      height: 20%;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, .18);
+      content: "";
+      filter: blur(30px);
+    }
+
+    .hero-visual::after {
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 22%;
+      background: linear-gradient(to bottom, rgba(239, 250, 246, 0), #effaf6 85%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero-mockup {
+      display: block;
+      position: relative;
+      z-index: 0;
+      width: min(100%, 620px);
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .hero p {
+      grid-area: copy;
+      max-width: 660px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: clamp(19px, 2vw, 23px);
+      line-height: 1.55;
+    }
+
+    .actions {
+      grid-area: actions;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 0 28px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 17px;
+      font-weight: 600;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .button:hover { background: #000; transform: translateY(-2px); }
+
+    .button--green { border-color: var(--green); background: var(--green); }
+    .button--green:hover { background: var(--green-dark); }
+
+    .button--ghost { background: transparent; color: var(--ink); }
+    .button--ghost:hover { background: var(--white); }
+
+    .whatsapp-icon { width: 21px; height: 21px; flex: 0 0 auto; }
+
+    section { padding: 112px 0; }
+
+    .section-heading { max-width: 720px; margin-bottom: 56px; }
+
+    .section-heading h2,
+    .split-copy h2,
+    .cta h2 {
+      font-size: clamp(35px, 4.1vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
+    }
+
+    .section-heading p,
+    .split-copy p {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .services { background: var(--soft); }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--white);
+    }
+
+    .card h3 { font-size: 23px; line-height: 1.15; letter-spacing: -0.025em; }
+
+    .card p { margin-top: 14px; color: var(--muted); font-size: 17px; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 48px;
+      counter-reset: process;
+    }
+
+    .step { position: relative; counter-increment: process; }
+
+    .step::before {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 24px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--white);
+      content: counter(process);
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .step:last-child::before { background: var(--green); }
+    .step h3 { font-size: 24px; letter-spacing: -0.03em; }
+    .step p { margin-top: 14px; color: var(--muted); font-size: 17px; }
+
+    .difference { background: var(--ink); color: var(--white); }
+
+    .difference .section-heading p { color: #cbd5e1; }
+
+    .difference-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 18px;
+      background: rgba(255,255,255,.16);
+    }
+
+    .difference-item { padding: 30px; background: var(--ink); }
+    .difference-item h3 { font-size: 22px; letter-spacing: -0.02em; }
+    .difference-item p { margin-top: 12px; color: #cbd5e1; font-size: 17px; }
+
+    .about { background: var(--soft); }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(260px, .78fr) minmax(0, 1.22fr);
+      gap: 96px;
+      align-items: center;
+    }
+
+    .profile {
+      display: grid;
+      min-height: 390px;
+      place-content: center;
+      gap: 20px;
+      padding: 36px;
+      border-radius: 20px;
+      background: var(--ink);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .profile-image {
+      display: block;
+      width: 156px;
+      height: 156px;
+      margin: 0 auto;
+      border: 3px solid rgba(255,255,255,.22);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .profile-caption {
+      padding: 0;
+    }
+
+    .profile p { font-size: 19px; }
+    .profile small { display: block; margin-top: 6px; color: #e2e8f0; font-size: 15px; }
+
+    .split-copy p + p { margin-top: 18px; }
+
+    .check-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 24px;
+      margin: 30px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .check-list li::before { margin-right: 9px; color: var(--green-dark); content: "✓"; font-weight: 700; }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 96px;
+      align-items: start;
+    }
+
+    .faq-list { border-top: 1px solid var(--line); }
+
+    details { border-bottom: 1px solid var(--line); }
+
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 0;
+      cursor: pointer;
+      font-size: 19px;
+      font-weight: 600;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::after { flex: 0 0 auto; color: var(--green-dark); content: "+"; font-size: 27px; font-weight: 400; }
+    details[open] summary::after { content: "−"; }
+    details p { max-width: 780px; padding: 0 0 24px; color: var(--muted); font-size: 17px; }
+
+    .cta { padding: 116px 0; background: var(--ink); color: var(--white); text-align: center; }
+    .cta h2 { max-width: 840px; margin: 0 auto; }
+    .cta p { max-width: 650px; margin: 24px auto 0; color: #cbd5e1; font-size: 20px; }
+    .cta .actions { justify-content: center; }
+
+    footer { padding: 32px 0; border-top: 1px solid var(--line); background: var(--white); }
+    footer p { color: var(--muted); font-size: 15px; text-align: center; }
+
+    @media (max-width: 800px) {
+      body { font-size: 17px; }
+      .container { width: min(100% - 40px, 1160px); }
+      .hero { min-height: auto; padding: 68px 0 76px; }
+      .brand { margin-bottom: 32px; }
+      .hero-content {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "title"
+          "visual"
+          "copy"
+          "actions";
+        gap: 0;
+        text-align: center;
+      }
+      h1 { font-size: clamp(38px, 11.5vw, 54px); }
+      .hero-visual { min-height: auto; margin-top: 28px; }
+      .hero-mockup { width: min(100%, 520px); }
+      .hero p { margin: 26px auto 0; font-size: 19px; }
+      .hero .actions { justify-content: center; }
+      section { padding: 76px 0; }
+      .section-heading { margin-bottom: 38px; }
+      .section-heading h2, .split-copy h2, .cta h2 { font-size: 37px; }
+      .section-heading p, .split-copy p, .cta p { font-size: 18px; }
+      .card-grid, .steps, .difference-grid, .split, .faq-layout { grid-template-columns: 1fr; }
+      .steps { gap: 40px; }
+      .difference-item { padding: 26px; }
+      .split, .faq-layout { gap: 46px; }
+      .profile { min-height: 320px; }
+      .profile-image { width: 132px; height: 132px; }
+      .check-list { grid-template-columns: 1fr; }
+      .actions { margin-top: 32px; }
+      .button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <h1>Sua empresa <strong>sem multas, sem sustos</strong> e sem pagar imposto a mais.</h1>
+        <div class="hero-visual">
+          <img class="hero-mockup" src="imgs/mockup-principal.webp" alt="Exemplo de relatório contábil enviado para a empresa">
+        </div>
+        <p>Sempre presente! Esqueça o contador que abandona e aparece 1 vez no mês para cobrar mensalidade. Contabilidade para ME e EPP: você entende o que está pagando e recebe tudo pronto no WhatsApp. 
+          
+        </p>
+        <div class="actions">
+          <a class="button button--green" href="http://wa.me/5591984938236?text=Ol%C3%A1,%20Janderson.%20Quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os%20de%20contabilidade%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.94 1.14-.17.2-.35.22-.64.07-.29-.15-1.23-.45-2.35-1.43-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.57-.35M12.04 2C6.51 2 2.03 6.48 2.03 12c0 1.77.46 3.43 1.27 4.87L2 22l5.25-1.23A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10S17.56 2 12.04 2m0 18.17c-1.5 0-2.9-.4-4.12-1.1l-.3-.18-3.12.73.76-3.04-.2-.31a8.1 8.1 0 0 1-1.23-4.27c0-4.53 3.68-8.21 8.21-8.21 4.52 0 8.2 3.68 8.2 8.21 0 4.52-3.68 8.17-8.2 8.17"/></svg>Entrar em contato agora mesmo</a>
+          <a class="button button--ghost" href="#servicos">Conhecer os serviços</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" class="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Contabilidade que ajuda você a decidir.</h2>
+          <p>O essencial para deixar seu CNPJ em dia, entender seus números e ganhar tempo para vender.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Simples Nacional sem erro</h3>
+            <p>Revisamos anexo, Fator R e pró-labore para que o DAS seja calculado corretamente.</p>
+          </article>
+          <article class="card">
+            <h3>Relatórios claros</h3>
+            <p>Você recebe uma visão simples do que faturou, gastou, sobrou e pagou de imposto.</p>
+          </article>
+          <article class="card">
+            <h3>Financeiro organizado</h3>
+            <p>Contas a pagar e receber, conciliação e previsão de caixa sem planilhas confusas.</p>
+          </article>
+          <article class="card">
+            <h3>Regularização do CNPJ</h3>
+            <p>Levantamos débitos, organizamos parcelamentos e deixamos as certidões em dia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Como funciona na prática?</h2>
+          <p>Sem reunião longa e sem sistema complicado. Tudo é resolvido de forma simples, pelo WhatsApp e e-mail.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <h3>Diagnóstico gratuito</h3>
+            <p>Você envia os dados da empresa. Em até 24 horas, mostramos o que precisa de atenção e quanto custa regularizar.</p>
+          </article>
+          <article class="step">
+            <h3>A gente organiza</h3>
+            <p>Regularizamos pendências, ajustamos cadastros e cuidamos da troca de contador, se necessário.</p>
+          </article>
+          <article class="step">
+            <h3>Você recebe pronto</h3>
+            <p>Guias, folha e avisos chegam de forma clara. Quando surgir uma dúvida, é só chamar no WhatsApp.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="difference">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Contador que fala a sua língua.</h2>
+          <p>Sem juridiquês, sem surpresas e sem você precisar correr atrás da informação.</p>
+        </div>
+        <div class="difference-grid">
+          <article class="difference-item">
+            <h3>Especialista em Simples, ME e EPP</h3>
+            <p>Atendimento focado em ME e EPP para cuidar do que realmente importa para o seu negócio.</p>
+          </article>
+          <article class="difference-item">
+            <h3>WhatsApp sem robô</h3>
+            <p>Você conversa diretamente com uma equipe que entende a rotina da sua empresa.</p>
+          </article>
+          <article class="difference-item">
+            <h3>Mensalidade previsível</h3>
+            <p>O valor é combinado desde o começo, sem cobranças inesperadas para o básico.</p>
+          </article>
+          <article class="difference-item">
+            <h3>Informação simples</h3>
+            <p>Você sabe o que aconteceu no mês sem ter que decifrar relatórios longos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="about">
+      <div class="container split">
+        <aside class="profile" aria-label="Janderson Melo, contador">
+          <img class="profile-image" src="imgs/perfil.webp" alt="Janderson Melo, contador">
+          <div class="profile-caption">
+            <p>Janderson Melo</p>
+            <small>Contador · Especialista em Simples Nacional, ME e EPP</small>
+          </div>
+        </aside>
+        <div class="split-copy">
+          <h2>Um contador que atende você.</h2>
+          <p>Sou Janderson Melo (@blacknousc), contador há 4 anos. Comecei atendendo pequenas empresas e vi o mesmo problema se repetir: impostos errados, multas por detalhes e relatórios que ninguém entende. Contador abandonando cliente e aparecendo só para cobrar o valor mensal.</p>
+          <p>Por isso, escolhi atender ME e EPP do Simples Nacional. A ideia é simples: deixar seu CNPJ em dia para você focar em vender.</p>
+          <ul class="check-list">
+            <li>Resposta pelo WhatsApp</li>
+            <li>Reunião por vídeo quando precisar</li>
+            <li>Sem fidelidade abusiva</li>
+            <li>Demonstração organizada</li>
+          </ul>
+          <div class="actions" style="justify-content:flex-start">
+            <a class="button" href="http://wa.me/5591984938236?text=Ol%C3%A1,%20Janderson.%20Quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os%20de%20contabilidade%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.94 1.14-.17.2-.35.22-.64.07-.29-.15-1.23-.45-2.35-1.43-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.57-.35M12.04 2C6.51 2 2.03 6.48 2.03 12c0 1.77.46 3.43 1.27 4.87L2 22l5.25-1.23A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10S17.56 2 12.04 2m0 18.17c-1.5 0-2.9-.4-4.12-1.1l-.3-.18-3.12.73.76-3.04-.2-.31a8.1 8.1 0 0 1-1.23-4.27c0-4.53 3.68-8.21 8.21-8.21 4.52 0 8.2 3.68 8.2 8.21 0 4.52-3.68 8.17-8.2 8.17"/></svg>Falar com o Janderson Agora!</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container faq-layout">
+        <div class="split-copy">
+          <h2>Dúvidas antes de trocar de contador.</h2>
+          <p>Se a sua pergunta não estiver aqui, fale comigo no WhatsApp. A resposta vem de uma pessoa, não de um robô.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Preciso trocar de contador? Como funciona?</summary>
+            <p>É simples. Você assina os documentos necessários e a gente busca a documentação, confere pendências e conduz a transição.</p>
+          </details>
+          <details>
+            <summary>Quanto custa a contabilidade?</summary>
+            <p>O valor depende do faturamento e da existência de funcionários. No diagnóstico gratuito, você recebe uma proposta clara e sem compromisso.</p>
+          </details>
+          <details>
+            <summary>Vocês atendem online?</summary>
+            <p>Sim. O atendimento é 100% online para todo o Brasil, com documentos pelo WhatsApp e e-mail e reuniões por vídeo quando necessário.</p>
+          </details>
+          <details>
+            <summary>E se houver imposto ou documento atrasado?</summary>
+            <p>Nós levantamos as pendências, explicamos as opções e ajudamos a regularizar tudo da forma mais adequada para sua empresa.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Deixe a burocracia com a gente.</h2>
+        <p>Em até 24 horas, você entende o que precisa ajustar para deixar o CNPJ em dia.</p>
+        <div class="actions">
+          <a class="button button--green" href="http://wa.me/5591984938236?text=Ol%C3%A1,%20Janderson.%20Quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os%20de%20contabilidade%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.94 1.14-.17.2-.35.22-.64.07-.29-.15-1.23-.45-2.35-1.43-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.57-.35M12.04 2C6.51 2 2.03 6.48 2.03 12c0 1.77.46 3.43 1.27 4.87L2 22l5.25-1.23A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10S17.56 2 12.04 2m0 18.17c-1.5 0-2.9-.4-4.12-1.1l-.3-.18-3.12.73.76-3.04-.2-.31a8.1 8.1 0 0 1-1.23-4.27c0-4.53 3.68-8.21 8.21-8.21 4.52 0 8.2 3.68 8.2 8.21 0 4.52-3.68 8.17-8.2 8.17"/></svg>Entrar em contato agora mesmo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© Blacknous Finanças e Digital</p>
+    </div>
+  </footer>
+</body>
+</html>
