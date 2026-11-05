@@ -181,6 +181,23 @@
       margin: 0 auto;
     }
 
+    .hero-credential {
+      position: absolute;
+      z-index: 2;
+      right: 4%;
+      bottom: 12%;
+      padding: 14px 18px;
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 14px;
+      background: var(--green-dark);
+      color: var(--white);
+      box-shadow: 0 14px 28px rgba(5, 150, 105, .28);
+      line-height: 1.2;
+    }
+
+    .hero-credential strong { display: block; font-size: 17px; letter-spacing: -.02em; }
+    .hero-credential span { display: block; margin-top: 4px; color: #d1fae5; font-size: 13px; font-weight: 600; }
+
     .hero p {
       grid-area: copy;
       max-width: 660px;
@@ -264,32 +281,132 @@
 
     .card p { margin-top: 14px; color: var(--muted); font-size: 17px; }
 
+    .plans { background: var(--white); }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .plan {
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, .04);
+    }
+
+    .plan--emphasis {
+      position: relative;
+      border-color: var(--green);
+      box-shadow: 0 16px 36px rgba(16, 185, 129, .13);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -14px;
+      right: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: var(--green-dark);
+      color: var(--white);
+      box-shadow: 0 8px 16px rgba(5, 150, 105, .22);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+    }
+
+    .plan-badge::before { content: "★"; color: #fef3c7; font-size: 14px; }
+    .plan h3 { font-size: 25px; letter-spacing: -.035em; }
+    .plan-price { margin-top: 18px; color: var(--green-dark); font-size: 27px; font-weight: 700; letter-spacing: -.035em; line-height: 1.1; }
+    .plan-price small { display: block; margin-top: 5px; color: var(--muted); font-size: 15px; font-weight: 500; letter-spacing: 0; }
+    .plan-list { display: grid; gap: 13px; margin: 30px 0 32px; padding: 0; list-style: none; color: var(--muted); font-size: 16px; }
+    .plan-list li { display: flex; gap: 10px; align-items: flex-start; }
+    .plan-list li::before { flex: 0 0 auto; color: var(--green-dark); content: "✓"; font-weight: 700; }
+    .plan-note {
+      margin: 0 0 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .plan-note strong { color: var(--ink); }
+    .plan .button { width: 100%; margin-top: auto; padding: 0 18px; }
+
     .steps {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 48px;
+      gap: 24px;
+      position: relative;
       counter-reset: process;
     }
 
-    .step { position: relative; counter-increment: process; }
+    .steps::before {
+      position: absolute;
+      top: 39px;
+      right: 15%;
+      left: 15%;
+      z-index: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--ink), var(--green));
+      content: "";
+    }
+
+    .step {
+      position: relative;
+      z-index: 1;
+      min-height: 248px;
+      padding: 102px 28px 30px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, .06);
+      counter-increment: process;
+    }
 
     .step::before {
+      position: absolute;
+      top: 16px;
+      left: 28px;
       display: grid;
       width: 48px;
       height: 48px;
-      margin-bottom: 24px;
       place-items: center;
+      border: 7px solid var(--soft);
       border-radius: 50%;
       background: var(--ink);
       color: var(--white);
       content: counter(process);
-      font-size: 17px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .step::after {
+      position: absolute;
+      top: 25px;
+      right: 28px;
+      color: var(--green-dark);
+      content: "→";
+      font-size: 28px;
       font-weight: 600;
     }
 
+    .step:last-child { border-color: #9de1c9; background: linear-gradient(145deg, #fff 0%, #effcf6 100%); }
     .step:last-child::before { background: var(--green); }
-    .step h3 { font-size: 24px; letter-spacing: -0.03em; }
-    .step p { margin-top: 14px; color: var(--muted); font-size: 17px; }
+    .step:last-child::after { content: "✓"; }
+    .step-label { display: block; margin-bottom: 10px; color: var(--green-dark); font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .step h3 { font-size: 23px; line-height: 1.22; letter-spacing: -0.03em; }
+    .step p { margin-top: 14px; color: var(--muted); font-size: 16px; }
 
     .difference { background: var(--ink); color: var(--white); }
 
@@ -363,6 +480,99 @@
 
     .check-list li::before { margin-right: 9px; color: var(--green-dark); content: "✓"; font-weight: 700; }
 
+    .reviews { background: #f8fafd; }
+
+    .reviews-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .reviews-heading .section-heading { margin-bottom: 0; }
+
+    .google-summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+      color: var(--ink);
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .google-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--white);
+    }
+
+    .google-mark svg { display: block; width: 24px; height: 24px; }
+
+    .stars { color: #fbbc04; font-size: 22px; letter-spacing: 2px; line-height: 1; }
+
+    .reviews-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .review-card {
+      display: flex;
+      min-height: 300px;
+      flex-direction: column;
+      padding: 28px;
+      border: 1px solid #dbe5ed;
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .review-card:hover { box-shadow: 0 18px 38px rgba(15, 23, 42, .14); transform: translateY(-5px); }
+
+    .review-card__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .reviewer { display: flex; align-items: center; min-width: 0; gap: 12px; }
+    .reviewer-avatar {
+      display: grid;
+      width: 50px;
+      height: 50px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      background: #e8f0fe;
+      color: #1967d2;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .review-card:nth-child(2n) .reviewer-avatar { background: #fce8e6; color: #c5221f; }
+    .review-card:nth-child(3n) .reviewer-avatar { background: #e6f4ea; color: #137333; }
+    .review-card h3 { overflow: hidden; font-size: 17px; letter-spacing: -.02em; text-overflow: ellipsis; white-space: nowrap; }
+    .reviewer-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 13px; }
+    .review-card .stars { margin-top: 24px; font-size: 18px; white-space: nowrap; }
+    .review-card time { margin-left: 8px; color: var(--muted); font-size: 13px; }
+    .review-card p { margin-top: 18px; color: #334155; font-size: 17px; line-height: 1.55; }
+    .review-card p::before { color: var(--green-dark); content: "“"; font-size: 30px; font-weight: 700; line-height: 0; vertical-align: -8px; }
+    .review-source { display: flex; align-items: center; gap: 7px; margin-top: auto; padding-top: 20px; color: #5f6368; font-size: 13px; }
+    .review-source::before { width: 15px; height: 15px; border-radius: 50%; background: conic-gradient(#4285f4 0 25%, #34a853 0 50%, #fbbc05 0 75%, #ea4335 0); content: ""; }
+
+    @media (max-width: 1040px) {
+      .reviews-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
     .faq-layout {
       display: grid;
       grid-template-columns: .72fr 1.28fr;
@@ -389,7 +599,12 @@
     summary::-webkit-details-marker { display: none; }
     summary::after { flex: 0 0 auto; color: var(--green-dark); content: "+"; font-size: 27px; font-weight: 400; }
     details[open] summary::after { content: "−"; }
-    details p { max-width: 780px; padding: 0 0 24px; color: var(--muted); font-size: 17px; }
+    .faq-answer { max-width: 780px; padding: 0 0 26px; color: var(--muted); font-size: 17px; }
+    .faq-answer p + p { margin-top: 16px; }
+    .faq-answer__lead { color: var(--ink); font-size: 18px; font-weight: 600; }
+    .faq-answer ol,
+    .faq-answer ul { display: grid; gap: 9px; margin: 18px 0; padding-left: 24px; }
+    .faq-answer li::marker { color: var(--green-dark); font-weight: 700; }
 
     .cta { padding: 116px 0; background: var(--ink); color: var(--white); text-align: center; }
     .cta h2 { max-width: 840px; margin: 0 auto; }
@@ -417,16 +632,26 @@
       h1 { font-size: clamp(38px, 11.5vw, 54px); }
       .hero-visual { min-height: auto; margin-top: 28px; }
       .hero-mockup { width: min(100%, 520px); }
+      .hero-credential { right: 4%; bottom: 10%; padding: 12px 15px; }
+      .hero-credential strong { font-size: 15px; }
+      .hero-credential span { font-size: 12px; }
       .hero p { margin: 26px auto 0; font-size: 19px; }
       .hero .actions { justify-content: center; }
       section { padding: 76px 0; }
       .section-heading { margin-bottom: 38px; }
       .section-heading h2, .split-copy h2, .cta h2 { font-size: 37px; }
       .section-heading p, .split-copy p, .cta p { font-size: 18px; }
-      .card-grid, .steps, .difference-grid, .split, .faq-layout { grid-template-columns: 1fr; }
-      .steps { gap: 40px; }
+      .card-grid, .plans-grid, .steps, .difference-grid, .split, .reviews-list, .faq-layout { grid-template-columns: 1fr; }
+      .steps { gap: 18px; }
+      .steps::before { top: 40px; right: auto; bottom: 40px; left: 51px; width: 2px; height: auto; background: linear-gradient(var(--ink), var(--green)); }
+      .step { min-height: 0; padding: 88px 24px 26px; }
+      .step::before { left: 24px; }
+      .step::after { right: 24px; }
+      .plan-badge { right: 18px; }
       .difference-item { padding: 26px; }
       .split, .faq-layout { gap: 46px; }
+      .reviews-heading { display: block; margin-bottom: 38px; }
+      .reviews-heading .actions { justify-content: flex-start; }
       .profile { min-height: 320px; }
       .profile-image { width: 132px; height: 132px; }
       .check-list { grid-template-columns: 1fr; }
@@ -439,16 +664,19 @@
   <main>
     <section class="hero">
       <div class="container hero-content">
-        <h1>Sua empresa <strong>sem multas, sem sustos</strong> e sem pagar imposto a mais.</h1>
+        <h1>Contabilidade para ME e EPP do Simples e <strong>o contador não some</strong>.</h1>
         <div class="hero-visual">
           <img class="hero-mockup" src="imgs/mockup-principal.webp" alt="Exemplo de relatório contábil enviado para a empresa">
+          <div class="hero-credential" aria-label="Janderson Melo, CRC PA 023305">
+            <strong>Janderson Melo</strong>
+            <span>CRC/PA 023305</span>
+          </div>
         </div>
-        <p>Sempre presente! Esqueça o contador que abandona e aparece 1 vez no mês para cobrar mensalidade. Contabilidade para ME e EPP: você entende o que está pagando e recebe tudo pronto no WhatsApp. 
+        <p>Esqueça o contador que abandona e aparece 1 vez no mês para cobrar mensalidade. Contabilidade para ME e EPP: você entende o que está pagando e recebe tudo pronto no WhatsApp. 
           
         </p>
         <div class="actions">
-          <a class="button button--green" href="http://wa.me/5591984938236?text=Ol%C3%A1,%20Janderson.%20Quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os%20de%20contabilidade%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.94 1.14-.17.2-.35.22-.64.07-.29-.15-1.23-.45-2.35-1.43-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.57-.35M12.04 2C6.51 2 2.03 6.48 2.03 12c0 1.77.46 3.43 1.27 4.87L2 22l5.25-1.23A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10S17.56 2 12.04 2m0 18.17c-1.5 0-2.9-.4-4.12-1.1l-.3-.18-3.12.73.76-3.04-.2-.31a8.1 8.1 0 0 1-1.23-4.27c0-4.53 3.68-8.21 8.21-8.21 4.52 0 8.2 3.68 8.2 8.21 0 4.52-3.68 8.17-8.2 8.17"/></svg>Entrar em contato agora</a>
-          <a class="button button--ghost" href="#servicos">Conhecer os serviços</a>
+          <a class="button button--green" href="http://wa.me/5591984938236?text=Ol%C3%A1,%20Janderson.%20Quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os%20de%20contabilidade%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.94 1.14-.17.2-.35.22-.64.07-.29-.15-1.23-.45-2.35-1.43-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.57-.35M12.04 2C6.51 2 2.03 6.48 2.03 12c0 1.77.46 3.43 1.27 4.87L2 22l5.25-1.23A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10S17.56 2 12.04 2m0 18.17c-1.5 0-2.9-.4-4.12-1.1l-.3-.18-3.12.73.76-3.04-.2-.31a8.1 8.1 0 0 1-1.23-4.27c0-4.53 3.68-8.21 8.21-8.21 4.52 0 8.2 3.68 8.2 8.21 0 4.52-3.68 8.17-8.2 8.17"/></svg>Quero meu diagnóstico agora</a>
         </div>
       </div>
     </section>
@@ -480,6 +708,61 @@
       </div>
     </section>
 
+    <section id="planos" class="plans">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Planos simples para a sua empresa.</h2>
+          <p>Escolha o acompanhamento que faz sentido para o momento do seu negócio.</p>
+        </div>
+        <div class="plans-grid">
+          <article class="plan">
+            <h3>Plano MEI</h3>
+            <p class="plan-price">R$ 149,00 <small>por mês</small></p>
+            <ul class="plan-list">
+              <li>Acompanhamento mensal</li>
+              <li>Envio de imposto mensal</li>
+              <li>Suporte pelo WhatsApp</li>
+              <li>1 alteração de dados por mês</li>
+              <li>Suporte no desenquadramento</li>
+            </ul>
+            <p class="plan-note"><strong>Observação:</strong> adicional de R$ 50,00 por funcionário na Folha de Pagamento.</p>
+            <a class="button button--ghost" href="http://wa.me/5591984938236?text=Ol%C3%A1,%20Janderson.%20Quero%20saber%20mais%20sobre%20o%20Plano%20MEI." target="_blank" rel="noopener noreferrer">Diagnóstico no Plano MEI</a>
+          </article>
+
+          <article class="plan plan--emphasis">
+            <span class="plan-badge">Mais escolhido</span>
+            <h3>Plano Básico ME/EPP</h3>
+            <p class="plan-price">R$ 350,00 <small>por mês</small></p>
+            <ul class="plan-list">
+              <li>Faturamento até R$ 35.000/mês</li>
+              <li>Acompanhamento mensal</li>
+              <li>Todas as declarações mensais</li>
+              <li>Folha de pagamento</li>
+              <li>Suporte direto com contador no WhatsApp</li>
+              <li>Relatórios e demonstrações contábeis</li>
+            </ul>
+            <p class="plan-note"><strong>Observação:</strong> adicional de R$ 50,00 por funcionário na Folha de Pagamento.</p>
+            <a class="button button--green" href="http://wa.me/5591984938236?text=Ol%C3%A1,%20Janderson.%20Quero%20saber%20mais%20sobre%20o%20Plano%20B%C3%A1sico." target="_blank" rel="noopener noreferrer">Diagnóstico no Plano Básico</a>
+          </article>
+
+          <article class="plan">
+            <h3>Plano Avançado ME/EPP</h3>
+            <p class="plan-price">Preço personalizado <small>para a necessidade da sua empresa</small></p>
+            <ul class="plan-list">
+              <li>Faturamento acima de R$ 35.000/mês</li>
+              <li>Acompanhamento mensal</li>
+              <li>Todas as declarações mensais</li>
+              <li>Folha de pagamento</li>
+              <li>Suporte direto com contador no WhatsApp</li>
+              <li>Relatórios e demonstrações contábeis</li>
+            </ul>
+            <p class="plan-note"><strong>Observação:</strong> adicional de R$ 50,00 por funcionário na Folha de pagamento.</p>
+            <a class="button button--ghost" href="http://wa.me/5591984938236?text=Ol%C3%A1,%20Janderson.%20Quero%20conversar%20sobre%20o%20Plano%20Avan%C3%A7ado." target="_blank" rel="noopener noreferrer">Diagnóstico Personalizado</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="como-funciona">
       <div class="container">
         <div class="section-heading">
@@ -488,16 +771,19 @@
         </div>
         <div class="steps">
           <article class="step">
-            <h3>Diagnóstico gratuito</h3>
-            <p>Você envia os dados da empresa. Em até 24 horas, mostramos o que precisa de atenção e quanto custa regularizar.</p>
+            <span class="step-label">Passo 1 · Diagnóstico</span>
+            <h3>Você me manda algumas informações básicas</h3>
+            <p>Envie seu CNPJ e conte, pelo WhatsApp, como está a rotina da sua empresa.</p>
           </article>
           <article class="step">
-            <h3>A gente organiza</h3>
-            <p>Regularizamos pendências, ajustamos cadastros e cuidamos da troca de contador, se necessário.</p>
+            <span class="step-label">Passo 2 · Plano de ação</span>
+            <h3>Eu te mando em 24h o que está errado e quanto custa corrigir no seu CNPJ</h3>
+            <p>Você recebe um diagnóstico claro, com os próximos passos e valores sem surpresa.</p>
           </article>
           <article class="step">
-            <h3>Você recebe pronto</h3>
-            <p>Guias, folha e avisos chegam de forma clara. Quando surgir uma dúvida, é só chamar no WhatsApp.</p>
+            <span class="step-label">Passo 3 · Tudo resolvido</span>
+            <h3>Se você aprovar, eu cuido da troca de contador e você não fala com seu ex-contador</h3>
+            <p>Assumimos o processo e você acompanha tudo de forma simples, pelo WhatsApp.</p>
           </article>
         </div>
       </div>
@@ -541,17 +827,76 @@
         </aside>
         <div class="split-copy">
           <h2>Um contador que atende você.</h2>
-          <p>Sou Janderson Melo (@blacknousc), contador há 4 anos. Comecei atendendo pequenas empresas e vi o mesmo problema se repetir: impostos errados, multas por detalhes e relatórios que ninguém entende. Contador abandonando cliente e aparecendo só para cobrar o valor mensal.</p>
+          <p>Sou Janderson Melo, contador há 4 anos. Comecei atendendo pequenas empresas e vi o mesmo problema se repetir: impostos errados, multas por detalhes e relatórios que ninguém entende. Contador abandonando cliente e aparecendo só para cobrar o valor mensal.</p>
           <p>Por isso, escolhi atender ME e EPP do Simples Nacional. A ideia é simples: deixar seu CNPJ em dia para você focar em vender.</p>
           <ul class="check-list">
             <li>Resposta pelo WhatsApp</li>
             <li>Reunião por vídeo quando precisar</li>
             <li>Sem fidelidade abusiva</li>
-            <li>Demonstração organizada</li>
+            <li>Atendende em todo Brasil</li>
           </ul>
           <div class="actions" style="justify-content:flex-start">
-            <a class="button" href="http://wa.me/5591984938236?text=Ol%C3%A1,%20Janderson.%20Quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os%20de%20contabilidade%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.94 1.14-.17.2-.35.22-.64.07-.29-.15-1.23-.45-2.35-1.43-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.57-.35M12.04 2C6.51 2 2.03 6.48 2.03 12c0 1.77.46 3.43 1.27 4.87L2 22l5.25-1.23A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10S17.56 2 12.04 2m0 18.17c-1.5 0-2.9-.4-4.12-1.1l-.3-.18-3.12.73.76-3.04-.2-.31a8.1 8.1 0 0 1-1.23-4.27c0-4.53 3.68-8.21 8.21-8.21 4.52 0 8.2 3.68 8.2 8.21 0 4.52-3.68 8.17-8.2 8.17"/></svg>Falar com Janderson Agora!</a>
+            <a class="button" href="http://wa.me/5591984938236?text=Ol%C3%A1,%20Janderson.%20Quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os%20de%20contabilidade%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.94 1.14-.17.2-.35.22-.64.07-.29-.15-1.23-.45-2.35-1.43-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.57-.35M12.04 2C6.51 2 2.03 6.48 2.03 12c0 1.77.46 3.43 1.27 4.87L2 22l5.25-1.23A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10S17.56 2 12.04 2m0 18.17c-1.5 0-2.9-.4-4.12-1.1l-.3-.18-3.12.73.76-3.04-.2-.31a8.1 8.1 0 0 1-1.23-4.27c0-4.53 3.68-8.21 8.21-8.21 4.52 0 8.2 3.68 8.2 8.21 0 4.52-3.68 8.17-8.2 8.17"/></svg>Quero meu diagnóstico agora!</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="avaliacoes" class="reviews">
+      <div class="container">
+        <div class="reviews-heading">
+          <div class="section-heading">
+            <h2>Quem confia, recomenda.</h2>
+            <p>Experiências compartilhadas por nossos clientes.</p>
+            <div class="google-summary" aria-label="Nota máxima em seis avaliações no Google">
+              <span class="google-mark" aria-hidden="true"><svg viewBox="0 0 533.5 544.3" focusable="false"><path fill="#4285f4" d="M533.5 278.4c0-17.4-1.6-34.1-4.7-50.2H272.1v95h146.9c-6.3 34-25.2 62.8-53.7 82v68.1h86.7c50.7-46.7 81.5-115.5 81.5-194.9z"/><path fill="#34a853" d="M272.1 544.3c72.4 0 133.3-23.9 177.8-65l-86.7-68.1c-23.9 16-54.5 25.2-91.1 25.2-70 0-129.3-47.3-150.5-110.9H32.2v70.2c44.3 88 135.3 148.6 239.9 148.6z"/><path fill="#fbbc04" d="M121.6 325.5c-10.6-31.6-10.6-65.7 0-97.3V158H32.2c-42.9 85.4-42.9 184.9 0 270.3l89.4-70.2z"/><path fill="#ea4335" d="M272.1 107.7c39.4-.6 77.4 14.2 106 41.3l79-79C401.3 17.7 337.8-5.2 272.1 0 167.5 0 76.5 60.6 32.2 148.6l89.4 70.2c21.2-63.6 80.5-111.1 150.5-111.1z"/></svg></span>
+              <span>
+                <span class="stars" aria-hidden="true">★★★★★</span><br>
+                5,0 · 6 avaliações no Google
+              </span>
+            </div>
+          </div>
+          <div class="actions">
+            <a class="button button--ghost" href="https://share.google/BtsFk0sHQyECihKAo" target="_blank" rel="noopener noreferrer">Ver todas as avaliações ↗</a>
+          </div>
+        </div>
+
+        <div class="reviews-list">
+          <article class="review-card">
+            <div class="review-card__top">
+              <div class="reviewer">
+                <span class="reviewer-avatar" aria-hidden="true">JR</span>
+                <div><h3>José Roberto</h3><span class="reviewer-meta">1 avaliação · 0 foto</span></div>
+              </div>
+            </div>
+            <div><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span><time datetime="2025-07-03">3 de jul. de 2025</time></div>
+            <p>👍🤝 Excelente Profissional da área! Ótimo serviço e suporte necessário.<br>Super recomendo os serviços!!📝🖥️💻🖨️📠</p>
+            <span class="review-source">Publicada no Google</span>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__top">
+              <div class="reviewer">
+                <span class="reviewer-avatar" aria-hidden="true">JD</span>
+                <div><h3>Jayme Silva</h3><span class="reviewer-meta">1 avaliação · 0 foto</span></div>
+              </div>
+            </div>
+            <div><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span><time datetime="2025-06-26">26 de jun. de 2025</time></div>
+            <p>Top,estamos crescendo e um dos responsáveis pelo nosso progresso é a nossa acessória contábil, obrigado por tudo e por tanto e vamos pra cima 💪</p>
+            <span class="review-source">Publicada no Google</span>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__top">
+              <div class="reviewer">
+                <span class="reviewer-avatar" aria-hidden="true">AB</span>
+                <div><h3>Ana Beatriz</h3><span class="reviewer-meta">1 avaliação · 0 foto</span></div>
+              </div>
+            </div>
+            <div><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span><time datetime="2025-06-24">24 de jun. de 2025</time></div>
+            <p>Além de superprofissional, ele é atencioso, comprometido e está sempre disponível quando preciso. Não é só um contador, é um verdadeiro parceiro, daqueles que dá gosto de ter por perto.</p>
+            <span class="review-source">Publicada no Google</span>
+          </article>
         </div>
       </div>
     </section>
@@ -564,20 +909,43 @@
         </div>
         <div class="faq-list">
           <details>
-            <summary>Preciso trocar de contador? Como funciona?</summary>
-            <p>É simples. Você assina os documentos necessários e a gente busca a documentação, confere pendências e conduz a transição.</p>
+            <summary>Trocar dá trabalho e meu contador vai me enrolar?</summary>
+            <div class="faq-answer">
+              <p class="faq-answer__lead">Não. A troca é 100% com a gente.</p>
+              <p>Você não precisa ligar nem pedir favor pro contador antigo. É seu direito por lei. A gente faz assim:</p>
+              <ol>
+                <li>Você assina a procuração eletrônica e o contrato.</li>
+                <li>A gente solicita toda a documentação e faz a comunicação no CRC.</li>
+              </ol>
+              <p>Se o antigo enrolar para entregar algo, a gente notifica formalmente e já te deixa operando com o que tem na Receita. Você não fica sem contabilidade nem um dia.</p>
+            </div>
           </details>
           <details>
-            <summary>Quanto custa a contabilidade?</summary>
-            <p>O valor depende do faturamento e da existência de funcionários. No diagnóstico gratuito, você recebe uma proposta clara e sem compromisso.</p>
+            <summary>E se vocês sumirem igual o outro?</summary>
+            <div class="faq-answer">
+              <p class="faq-answer__lead">Aqui você fala com gente, no WhatsApp, no mesmo dia.</p>
+              <p>Nada de robô, ticket ou “abra um chamado”. Nosso combinado é simples:</p>
+              <ul>
+                <li>Atendimento no WhatsApp em horário comercial com resposta no mesmo dia.</li>
+                <li>Contato com a equipe contábil, não só com um vendedor.</li>
+                <li>Se precisar, reunião por vídeo sem custo extra.</li>
+              </ul>
+              <p>E sem fidelidade abusiva de 12 meses. Você fica porque está sendo atendido, não porque está preso em contrato.</p>
+            </div>
           </details>
           <details>
-            <summary>Vocês atendem online?</summary>
-            <p>Sim. O atendimento é 100% online para todo o Brasil, com documentos pelo WhatsApp e reuniões por vídeo quando necessário.</p>
-          </details>
-          <details>
-            <summary>E se houver imposto ou documento atrasado?</summary>
-            <p>Nós levantamos as pendências, explicamos as opções e ajudamos a regularizar tudo da forma mais adequada para sua empresa.</p>
+            <summary>E se eu tiver dívida escondida?</summary>
+            <div class="faq-answer">
+              <p class="faq-answer__lead">É exatamente por isso que a gente começa com um diagnóstico gratuito.</p>
+              <p>A gente puxa tudo que a Receita vê: débitos de Simples, INSS, FGTS, falta de entrega de declaração e certidões. Sem julgamento.</p>
+              <p>Em até 24h você recebe um relatório simples falando:</p>
+              <ol>
+                <li>O que tem de dívida hoje.</li>
+                <li>Quanto disso dá pra parcelar.</li>
+                <li>Quanto custa pra deixar tudo em dia.</li>
+              </ol>
+              <p>Você só decide se quer regularizar depois de ver os números claros no WhatsApp.</p>
+            </div>
           </details>
         </div>
       </div>
@@ -588,7 +956,7 @@
         <h2>Deixe a burocracia com a gente.</h2>
         <p>Em até 24 horas, você entende o que precisa ajustar para deixar o CNPJ em dia.</p>
         <div class="actions">
-          <a class="button button--green" href="http://wa.me/5591984938236?text=Ol%C3%A1,%20Janderson.%20Quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os%20de%20contabilidade%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.94 1.14-.17.2-.35.22-.64.07-.29-.15-1.23-.45-2.35-1.43-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.57-.35M12.04 2C6.51 2 2.03 6.48 2.03 12c0 1.77.46 3.43 1.27 4.87L2 22l5.25-1.23A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10S17.56 2 12.04 2m0 18.17c-1.5 0-2.9-.4-4.12-1.1l-.3-.18-3.12.73.76-3.04-.2-.31a8.1 8.1 0 0 1-1.23-4.27c0-4.53 3.68-8.21 8.21-8.21 4.52 0 8.2 3.68 8.2 8.21 0 4.52-3.68 8.17-8.2 8.17"/></svg>Entrar em contato agora</a>
+          <a class="button button--green" href="http://wa.me/5591984938236?text=Ol%C3%A1,%20Janderson.%20Quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os%20de%20contabilidade%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.67.15-.2.29-.77.95-.94 1.14-.17.2-.35.22-.64.07-.29-.15-1.23-.45-2.35-1.43-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.35.2 1.86.12.57-.09 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.57-.35M12.04 2C6.51 2 2.03 6.48 2.03 12c0 1.77.46 3.43 1.27 4.87L2 22l5.25-1.23A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10S17.56 2 12.04 2m0 18.17c-1.5 0-2.9-.4-4.12-1.1l-.3-.18-3.12.73.76-3.04-.2-.31a8.1 8.1 0 0 1-1.23-4.27c0-4.53 3.68-8.21 8.21-8.21 4.52 0 8.2 3.68 8.2 8.21 0 4.52-3.68 8.17-8.2 8.17"/></svg>Quero meu diagnóstico agora</a>
         </div>
       </div>
     </section>
